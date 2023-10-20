@@ -108,107 +108,391 @@ class tentangSaya extends StatefulWidget {
 }
 class MenuItem {
   final String name;
-   bool pilih;
+  final String data;
+
 
   MenuItem({
     required this.name,
-    required this.pilih,
+    required this.data,
   });
 }
 
 class _tentangSayaState extends State<tentangSaya> {
 
 final List<MenuItem> menuItems = [
-  MenuItem(
-    name: 'Beranda',
-    pilih: false,
-    
-  ),
+
   MenuItem(
     name: 'Tentang Saya',
-    pilih: true,
+    data: ','
   ),
   MenuItem(
     name: 'Resume',
-    pilih: false,
+    data: 'a'
   ),
   MenuItem(
     name: 'Portofolio',
-    pilih: false,
+    data: 'aa'
   ),
   MenuItem(
     name: 'Kontak Refrensi',
-    pilih: false,
+    data: 'a'
   ),
   MenuItem(
     name: 'Kontak Saya',
-    pilih: false,
+    data: 'a'
   ),
 ];
 
   @override
   Widget build(BuildContext context) {
-     List<Widget> buttons = [];
-int a;
-int i ;
-  for (i= 0; i < menuItems.length; i++);
-  a=i;
-   buttons.add(
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical:10),
-        child: TextButton(
-          onPressed: () {
-            print(a);
-            int? j;
-            j == a;
-              if (j == a) {
-                menuItems[a].pilih = true; // Mengatur status menjadi true untuk tombol yang diklik
-              } 
-            
-            
-          },
-          child: Ink(
-            padding: const EdgeInsets.only(top: 3,right: 8,left: 8,bottom: 6),
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(25),
-              color: menuItems[a].pilih == false ? Colors.transparent : cream,
-            ),
-            child: Text(
-                menuItems[a].name,
-                style: TextStyle(
-                  fontStyle: FontStyle.normal,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color:menuItems[a].pilih == false ? cream : ijo,
-                ),
-              ),
-            ),
-          ),
+  return Material(
+      child: VerticalTabs(
+        tabsWidth: 200,
+        indicatorColor: kuning,
+        selectedTabBackgroundColor: cream,
+        contentScrollAxis: Axis.vertical,
+        changePageCurve: Curves.bounceIn,
+        tabs: menuItems.map((item) => tabs(item)).toList(),
+        contents: menuItems.map((item) => tabsContent(item)).toList(),
+    )
+  );
+  }
+ Tab tabs(MenuItem item) {
+  return Tab(
+    child: Column(
+      children: <Widget>[
+        Text(
+          item.name,style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 20,fontWeight: FontWeight.bold,color: cream)
         ),
-    );
-    return Material(
-      child: 
-      Container(
-        child: Row(
-          children: [
-            Container(
-              color: ijo,
-              width: 200,
-              child: Column(
-                children: [
-                  Container(
-                    width: 200,
-                    height: 200,
-                    color: kuning,
-                    child: Image.network('https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86',fit: BoxFit.fitHeight,scale: 0.6,)),
-                    Column(children: buttons,)
-                ],
-              ),
+      ],
+    ),
+  );
+}
+  Widget tabsContent(MenuItem item) {
+    return Container(
+      color: cream,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 45,left: 45,top: 30,bottom: 30),
+        child: Column(
+          children: <Widget>[
+            Text(
+              item.name,
+              style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: 60,fontWeight: FontWeight.w400,color: ijo),
             ),
+            const Divider(
+              height: 20,
+              color: ijo,
+            ),
+            LayoutBuilder(builder: (context,cons){
+              if(item.name==menuItems[0].name){
+                return tentang();
+              }else if(item.name==menuItems[1].name){
+                return resume();
+              }else if(item.name==menuItems[2].name){
+                return Text('bb');
+              }else if(item.name==menuItems[3].name){
+                return Text('cc');
+              }else{
+                return Text('dd');
+              }
+            })
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container resume() => Container(
+    child: Text('Education'),
+  );
+
+
+  Container tentang() => Container(
+    width: MediaQuery.sizeOf(context).width,
+    padding: const EdgeInsets.only(top: 30),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Image.network('https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86',height: 200,),
+            Text('Saya ',style: GoogleFonts.sono(fontSize: 30, fontWeight: FontWeight.w400, color: ijo)),
+            Text('Adi Yogta Putra ',style: GoogleFonts.sono(fontSize: 30, fontWeight: FontWeight.bold, color: ijo)),
+            Text('Desainer Grafis / Programmer',style: GoogleFonts.sono(fontSize: 30, fontWeight: FontWeight.w400, color: ijo)),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Text('Lulusan Sarjana Teknologi Informasi dari Universitas Muhammadiyah Yogyakarta tahun 2023. Saya memiliki minat yang mendalam dalam pemrograman dan desain grafis, khususnya dalam pengembangan aplikasi Flutter (Dart). Selama kuliah, saya pernah mengerjakan proyek freelance untuk mengembangkan sebuah aplikasi arisan online. Di samping itu, saya juga telah aktif dalam organisasi kampus, pernah menjadi Ketua Divisi Publikasi dan Dokumentasi tingkat jurusan maupun fakultas, yang memberikan saya kesempatan untuk mengasah kemampuan dalam bidang teknologi informasi dan publikasi. Saya juga memiliki pengalaman profesional selama 1 setengah tahun sebagai Editor Video dan Desainer Grafis di perusahaan Latifa Jewelry, di mana saya mengembangkan keterampilan editing video dan desain grafis yang kuat. Saya bersemangat untuk terus mengembangkan diri dan berkontribusi dalam dunia teknologi serta desain.',style: GoogleFonts.montserrat(fontSize: 20, fontWeight: FontWeight.normal, color: ijo),textAlign: TextAlign.justify,),
+        ),
+        
+      ],
+    ),
+  );
+}
+
+enum IndicatorSide { start, end }
+
+/// A vertical tab widget for flutter
+class VerticalTabs extends StatefulWidget {
+  final int initialIndex;
+  final double tabsWidth;
+  final double indicatorWidth;
+  final IndicatorSide indicatorSide;
+  final List<Tab> tabs;
+  final List<Widget> contents;
+  final TextDirection direction;
+  final Color indicatorColor;
+  final bool disabledChangePageFromContentView;
+  final Axis contentScrollAxis;
+  final Color selectedTabBackgroundColor;
+  final Color tabBackgroundColor;
+  final TextStyle selectedTabTextStyle;
+  final TextStyle tabTextStyle;
+  final Duration changePageDuration;
+  final Curve changePageCurve;
+  final Color tabsShadowColor;
+  final double tabsElevation;
+  final Function(int tabIndex)? onSelect;
+  final Color? backgroundColor;
+
+  const VerticalTabs(
+      {Key? key,
+      required this.tabs,
+      required this.contents,
+      this.tabsWidth = 200,
+      this.indicatorWidth = 3,
+      this.indicatorSide = IndicatorSide.end,
+      this.initialIndex = 0,
+      this.direction = TextDirection.ltr,
+      this.indicatorColor = Colors.green,
+      this.disabledChangePageFromContentView = false,
+      this.contentScrollAxis = Axis.horizontal,
+      this.selectedTabBackgroundColor = const Color(0x1100ff00),
+      this.tabBackgroundColor = const Color(0xfff8f8f8),
+      this.selectedTabTextStyle = const TextStyle(color: ijo),
+      this.tabTextStyle = const TextStyle(color: cream),
+      this.changePageCurve = Curves.easeInOutSine,
+      this.changePageDuration = const Duration(milliseconds: 250),
+      this.tabsShadowColor = Colors.black54,
+      this.tabsElevation = 2.0,
+      this.onSelect,
+      this.backgroundColor})
+      : assert(tabs.length == contents.length),
+        super(key: key);
+
+  @override
+  _VerticalTabsState createState() => _VerticalTabsState();
+}
+
+class _VerticalTabsState extends State<VerticalTabs> with TickerProviderStateMixin {
+  late int _selectedIndex;
+  bool? _changePageByTapView;
+
+  late AnimationController animationController;
+  late Animation<double> animation;
+  late Animation<RelativeRect> rectAnimation;
+
+  PageController pageController = PageController();
+
+  List<AnimationController> animationControllers = [];
+
+  ScrollPhysics pageScrollPhysics = const AlwaysScrollableScrollPhysics();
+
+  @override
+  void initState() {
+    _selectedIndex = widget.initialIndex;
+    for (int i = 0; i < widget.tabs.length; i++) {
+      animationControllers.add(AnimationController(
+        duration: const Duration(milliseconds: 400),
+        vsync: this,
+      ));
+    }
+    _selectTab(widget.initialIndex);
+
+    if (widget.disabledChangePageFromContentView == true) pageScrollPhysics = const NeverScrollableScrollPhysics();
+
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      pageController.jumpToPage(widget.initialIndex);
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Directionality(
+      textDirection: widget.direction,
+      child: Container(
+        color: widget.backgroundColor ?? Theme.of(context).canvasColor,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
             Expanded(
-              child: Container(
-                color: cream,
+              child: Row(
+                children: <Widget>[
+                  Material(
+                    elevation: widget.tabsElevation,
+                    shadowColor: widget.tabsShadowColor,
+                    shape: const BeveledRectangleBorder(),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: widget.tabsWidth,
+                          width: widget.tabsWidth,
+                          decoration: BoxDecoration(
+                            color: kuning,
+                            image: DecorationImage(image: NetworkImage('https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86'))
+                          ),
+                        ),
+                        Container(
+                          height: 20,
+                          alignment: Alignment.center,
+                          width: widget.tabsWidth,
+                          color: ijo,
+                          child: const Divider(
+            height: 10,
+            color: oren,
+          ),
+                        ),
+                        Container(
+                          color: ijo,
+                          height: MediaQuery.sizeOf(context).height-widget.tabsWidth -20,
+                          width: widget.tabsWidth,
+                          child: ListView.builder(
+                            itemCount: widget.tabs.length,
+                            itemBuilder: (context, index) {
+                              Tab tab = widget.tabs[index];
+
+                              Alignment alignment = Alignment.centerLeft;
+                              if (widget.direction == TextDirection.rtl) {
+                                alignment = Alignment.centerRight;
+                              }
+
+                              Widget child;
+                              if (tab.child != null) {
+                                child = tab.child!;
+                              } else {
+                                child = Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    borderRadius: BorderRadius.circular(24)
+                                  ),
+                                    padding: const EdgeInsets.all(10),
+                                    child: Row(
+                                      children: <Widget>[
+
+                                        (tab.text != null)
+                                            ? Container(
+                                              decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    borderRadius: BorderRadius.circular(24)
+                                  ),
+                                                width: widget.tabsWidth - 50,
+                                                child: Text(
+                                                  tab.text!,
+                                                  softWrap: true,
+                                                  style: _selectedIndex == index
+                                                      ? TextStyle(color: ijo)
+                                                      : TextStyle(color: cream),
+                                                ))
+                                            : Container(),
+                                      ],
+                                    ));
+                              }
+
+                              Color itemBGColor = ijo;
+                              BoxShape s = BoxShape.rectangle;
+                              BorderRadius b = BorderRadius.circular(0);
+                              if (_selectedIndex == index) itemBGColor = oren;
+                              if (_selectedIndex == index) s = BoxShape.rectangle;
+                              if (_selectedIndex == index) b = BorderRadius.circular(0);
+
+                              double? left, right;
+                              if (widget.direction == TextDirection.rtl) {
+                                left = ((widget.indicatorSide == IndicatorSide.end) ? 0 : null);
+                                right = ((widget.indicatorSide == IndicatorSide.start) ? 0 : null);
+                              } else {
+                                right = ((widget.indicatorSide == IndicatorSide.end) ? 0 : null);
+                                left = ((widget.indicatorSide == IndicatorSide.start) ? 0 : null);
+                              }
+
+                              return Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                    top: 2,
+                                    bottom: 2,
+                                    width: widget.indicatorWidth,
+                                    left: left,
+                                    right: right,
+                                    child: ScaleTransition(
+                                      child: Container(
+                                        color: oren,
+                                      ),
+                                      scale: Tween(begin: 0.0, end: 1.0).animate(
+                                        CurvedAnimation(
+                                          parent: animationControllers[index],
+                                          curve: Curves.elasticOut,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      _changePageByTapView = true;
+                                      setState(() {
+                                        _selectTab(index);
+                                      });
+
+                                      pageController.animateToPage(index,
+                                          duration: widget.changePageDuration, curve: widget.changePageCurve);
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        shape: s,
+                                        borderRadius: b,
+                                        color: itemBGColor,
+                                      ),
+                                      alignment: Alignment.center,
+                                      padding:  EdgeInsets.symmetric(vertical: 15,horizontal: 5),
+                                      child: child,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: PageView.builder(
+                      scrollDirection: widget.contentScrollAxis,
+                      physics: pageScrollPhysics,
+                      onPageChanged: (index) {
+                        if (_changePageByTapView == false || _changePageByTapView == null) {
+                          _selectTab(index);
+                        }
+                        if (_selectedIndex == index) {
+                          _changePageByTapView = null;
+                        }
+                        setState(() {});
+                      },
+                      controller: pageController,
+
+                      // the number of pages
+                      itemCount: widget.contents.length,
+
+                      // building pages
+                      itemBuilder: (BuildContext context, int index) {
+                        return widget.contents[index];
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -216,6 +500,19 @@ int i ;
       ),
     );
   }
+
+  void _selectTab(index) {
+    _selectedIndex = index;
+    for (AnimationController animationController in animationControllers) {
+      animationController.reset();
+    }
+    animationControllers[index].forward();
+
+    if (widget.onSelect != null) {
+      widget.onSelect!(_selectedIndex);
+    }
+  }
 }
+
 
 
