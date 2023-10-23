@@ -117,6 +117,17 @@ class MenuItem {
   });
 }
 
+class Teman {
+  final String name;
+  final String noTelp;
+
+
+  Teman({
+    required this.name,
+    required this.noTelp,
+  });
+}
+
 class _tentangSayaState extends State<tentangSaya> {
 
 final List<MenuItem> menuItems = [
@@ -134,12 +145,32 @@ final List<MenuItem> menuItems = [
     data: 'aa'
   ),
   MenuItem(
+    name: 'Keahlian',
+    data: 'a'
+  ),
+  MenuItem(
     name: 'Kontak Refrensi',
     data: 'a'
   ),
   MenuItem(
     name: 'Kontak Saya',
     data: 'a'
+  ),
+];
+
+final List<Teman> teman = [
+
+  Teman(
+    name: 'Ocky Dimas',
+    noTelp: '0895421431085'
+  ),
+  Teman(
+    name: 'Rizky Anfasa',
+    noTelp: '081215736202'
+  ),
+  Teman(
+    name: 'Edo Septian',
+    noTelp: '081373270499'
   ),
 ];
 
@@ -189,11 +220,13 @@ final List<MenuItem> menuItems = [
               }else if(item.name==menuItems[1].name){
                 return resume();
               }else if(item.name==menuItems[2].name){
-                return Text('bb');
+                return const Text('bb');
               }else if(item.name==menuItems[3].name){
-                return Text('cc');
+                return kemampuan();
+              }else if(item.name==menuItems[4].name){
+                return kontakRefrensi();
               }else{
-                return Text('dd');
+                return const Text('dd');
               }
             })
           ],
@@ -201,22 +234,147 @@ final List<MenuItem> menuItems = [
       ),
     );
   }
+
+  Column kontakRefrensi() => Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Text('Jika Anda membutuhkan referensi langsung tentang saya, silakan hubungi mantan rekan dan teman yang pernah berkolaborasi dengan saya.',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.normal,color: ijo),),
+        SizedBox(height: 20,),
+      SizedBox(
+        height: MediaQuery.sizeOf(context).height*0.4,
+        width: 550,
+        child: ListView.builder(
+          itemCount: teman.length,
+          itemBuilder: (context,index){
+            return Container(
+              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+              margin: EdgeInsets.all(15),
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                color: ijo,
+                borderRadius: BorderRadius.circular(20)
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Nama',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.bold,color: cream),),
+                      Text('No WA',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.bold,color: cream),),
+                    ],
+                  ),
+                  SizedBox(width: 20,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(': '+teman[index].name,style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.normal,color: cream),),
+                      Text(': '+teman[index].noTelp,style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.normal,color: cream),),
+                    ],
+                  ),
+                ],
+              ),
+            );
+        }),
+      )
+    ],
+  );
+
+  Expanded kemampuan() => Expanded(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('"Flutter Developer"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.bold,color: ijo),), const SizedBox(width: 20,),
+              Text('"Desain Grafis"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.bold,color: ijo),), const SizedBox(width: 20,),
+              Text('"Editing Video"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: 25,fontWeight: FontWeight.bold,color: ijo),),
+        
+            ],
+          ),
+        ),
+        Text('Keahlian Aplikasi',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 30,fontWeight: FontWeight.bold,color: ijo),),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  Image.network('https://drive.google.com/uc?id=1bTrz76prqHj4QPkSwK1Ydinf3vQBrBc1',height: 50,),
+                  const SizedBox(height: 10,),
+                  Text('Visual Studio Code',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 20,fontWeight: FontWeight.bold,color: ijo),)
+                ],
+              ),
+              const SizedBox(width: 20,),
+              Column(
+                children: [
+                  Image.network('https://drive.google.com/uc?id=1Cl9RRViNtavssNhZODRt-JiZrAijEipL',height: 50,),
+                  const SizedBox(height: 10,),
+                  Text('Flutter',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 20,fontWeight: FontWeight.bold,color: ijo),)
+                ],
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40),
+          child: Row(
+            
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  Image.network('https://drive.google.com/uc?id=14z2TnAKvi8ZMznR_2OtEc537xd9x0nlF',height: 50,),
+                  const SizedBox(height: 10,),
+                  Text('Adobe Premiere',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 20,fontWeight: FontWeight.bold,color: ijo),)
+                ],
+              ),
+              const SizedBox(width: 20,),
+              Column(
+                children: [
+                  Image.network('https://drive.google.com/uc?id=1b8IH_j-x_WU7lYEzaQBEuv30eD6J7lhc',height: 50,),
+                  const SizedBox(height: 10,),
+                  Text('Adobe Photoshop',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 20,fontWeight: FontWeight.bold,color: ijo),)
+                ],
+              ),
+              const SizedBox(width: 20,),
+              Column(
+                children: [
+                  Image.network('https://drive.google.com/uc?id=1N5Z_RX41TBhELaSoHhe9VFaSKM_TNM-2',height: 50,),
+                  const SizedBox(height: 10,),
+                  Text('Corel Draw',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: 20,fontWeight: FontWeight.bold,color: ijo),)
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+
 final ScrollController _scrollController = ScrollController();
   Container resume() => Container(
+    padding: const EdgeInsets.only(top: 30),
     width: MediaQuery.sizeOf(context).width,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Education',style: GoogleFonts.sono(fontSize: 30, fontWeight: FontWeight.bold, color: ijo)),
+        const SizedBox(height: 20,),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           controller: _scrollController,
           child: Row(
             children: [
               Container(
-                margin: EdgeInsets.only(right: 20),
-                padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                margin: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
                 width: 350,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -236,8 +394,8 @@ final ScrollController _scrollController = ScrollController();
               ),
               ),
               Container(
-                margin: EdgeInsets.only(right: 20),
-                padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                margin: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
                 width: 350,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -258,8 +416,8 @@ final ScrollController _scrollController = ScrollController();
               ),
               ),
                Container(
-                margin: EdgeInsets.only(right: 20),
-                padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                margin: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
                 width: 350,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -274,14 +432,13 @@ final ScrollController _scrollController = ScrollController();
                   Text('SMA',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: ijo)),
                   Text('MA AL-Fatah Natar',style: GoogleFonts.sono(fontSize: 22, fontWeight: FontWeight.bold, color: ijo)),
                   Text(' ',style: GoogleFonts.sono(fontSize: 22, fontWeight: FontWeight.bold, color: ijo)),
-                  Text('2003-2016',style: GoogleFonts.sono(fontSize: 25, fontWeight: FontWeight.bold, color: ijo)),
+                  Text('2013-2016',style: GoogleFonts.sono(fontSize: 25, fontWeight: FontWeight.bold, color: ijo)),
                 
                 ],
               ),
               ),
                Container(
-                margin: EdgeInsets.only(right: 20),
-                padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
                 width: 350,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -295,7 +452,7 @@ final ScrollController _scrollController = ScrollController();
                 children: [
                   Text('Strata 1',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: ijo)),
                   Text('Universitas Muhammadiyah Yogyakarta',style: GoogleFonts.sono(fontSize: 22, fontWeight: FontWeight.bold, color: ijo)),
-                  Text('2004-2010',style: GoogleFonts.sono(fontSize: 25, fontWeight: FontWeight.bold, color: ijo)),
+                  Text('2016-2023',style: GoogleFonts.sono(fontSize: 25, fontWeight: FontWeight.bold, color: ijo)),
                 
                 ],
               ),
@@ -303,7 +460,82 @@ final ScrollController _scrollController = ScrollController();
             ],
           ),
         ),
+        const SizedBox(height: 30,),
         Text('Experience',style: GoogleFonts.sono(fontSize: 30, fontWeight: FontWeight.bold, color: ijo)),
+        const SizedBox(height: 20,),
+         SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+           child: Column(
+             children: [
+               Container(
+                      margin: const EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                      width: MediaQuery.sizeOf(context).width*0.65,
+                      height: 170,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(23)
+                      ),
+                      child: 
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text('Programmer Magang Di Perusahaan Monte Moria Indonesia',style: GoogleFonts.sono(fontSize: 28, fontWeight: FontWeight.bold, color: ijo)),
+                        Text('Membuat website admin restaurant berbasis POST dengan beranggotakan 2 orang dengan platform Angular JS',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: ijo)),
+                        Text('April 2019 - Agustus 2019',style: GoogleFonts.sono(fontSize: 25, fontWeight: FontWeight.bold, color: ijo)),
+                      
+                      ],
+                    ),
+                    ),
+               Container(
+                      margin: const EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                      width: MediaQuery.sizeOf(context).width*0.65,
+                      height: 170,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(23)
+                      ),
+                      child: 
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text('Membuat Project Aplikasi Arisan',style: GoogleFonts.sono(fontSize: 28, fontWeight: FontWeight.bold, color: ijo)),
+                        Text('Dalam tim tiga orang, saya memainkan peran kunci sebagai programmer menggunakan framework Flutter untuk mengembangkan aplikasi arisan berbasis Android dengan fungsi CRUD untuk klien.',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: ijo)),
+                        Text('Februari 2021 - April 2021',style: GoogleFonts.sono(fontSize: 25, fontWeight: FontWeight.bold, color: ijo)),
+                      
+                      ],
+                    ),
+                    ),
+               Container(
+                      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                      width: MediaQuery.sizeOf(context).width*0.65,
+                      height: 170,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(23)
+                      ),
+                      child: 
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text('Editor Video Perusahaan Latifa Jewelry',style: GoogleFonts.sono(fontSize: 28, fontWeight: FontWeight.bold, color: ijo)),
+                        Text('Mengambil gambar dan video cincin untuk bahan membuat video',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: ijo)),
+                        Text('Membuat konten Desain dan video harian dengan isi berupa promosi penjualan cincin',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: ijo)),
+                        Text('Juli 2021 - Desember 2022',style: GoogleFonts.sono(fontSize: 25, fontWeight: FontWeight.bold, color: ijo)),
+                      
+                      ],
+                    ),
+                    ),
+             ],
+           ),
+         ),
       ],
     ),
   );
@@ -451,7 +683,7 @@ class _VerticalTabsState extends State<VerticalTabs> with TickerProviderStateMix
                         Container(
                           height: widget.tabsWidth,
                           width: widget.tabsWidth,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: kuning,
                             image: DecorationImage(image: NetworkImage('https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86'))
                           ),
@@ -504,8 +736,8 @@ class _VerticalTabsState extends State<VerticalTabs> with TickerProviderStateMix
                                                   tab.text!,
                                                   softWrap: true,
                                                   style: _selectedIndex == index
-                                                      ? TextStyle(color: ijo)
-                                                      : TextStyle(color: cream),
+                                                      ? const TextStyle(color: ijo)
+                                                      : const TextStyle(color: cream),
                                                 ))
                                             : Container(),
                                       ],
@@ -565,7 +797,7 @@ class _VerticalTabsState extends State<VerticalTabs> with TickerProviderStateMix
                                         color: itemBGColor,
                                       ),
                                       alignment: Alignment.center,
-                                      padding:  EdgeInsets.symmetric(vertical: 15,horizontal: 5),
+                                      padding:  const EdgeInsets.symmetric(vertical: 15,horizontal: 5),
                                       child: child,
                                     ),
                                   ),
@@ -579,7 +811,6 @@ class _VerticalTabsState extends State<VerticalTabs> with TickerProviderStateMix
                   ),
                   Expanded(
                     child: PageView.builder(
-                      scrollDirection: widget.contentScrollAxis,
                       physics: pageScrollPhysics,
                       onPageChanged: (index) {
                         if (_changePageByTapView == false || _changePageByTapView == null) {
