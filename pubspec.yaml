@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.1.0
   vertical_tabs_flutter: ^1.0.0
+  url_launcher: any
 
 dev_dependencies:
   flutter_test:
