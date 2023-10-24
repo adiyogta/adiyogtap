@@ -1,8 +1,8 @@
 // ignore_for_file: camel_case_types
 
+import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 
 const ijo = Color(0xFF3B421A);
@@ -224,7 +224,41 @@ final List<Teman> teman = [
               }else if(item.name==menuItems[1].name){
                 return resume();
               }else if(item.name==menuItems[2].name){
-                return const Text('bb');
+                return LayoutBuilder(
+    builder: (context, constraints) {
+      return DefaultTabController(
+        length: 6,
+        child: Column(
+          children: <Widget>[
+            ButtonsTabBar(
+              backgroundColor: Colors.red,
+              unselectedBackgroundColor: Colors.grey[300],
+              unselectedLabelStyle: TextStyle(color: Colors.black),
+              labelStyle:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.directions_car),
+                  text: "car",
+                ),
+                // Tambahkan tab lain di sini
+              ],
+            ),
+            Expanded(
+              child: TabBarView(
+                children: <Widget>[
+                  Center(
+                    child: Icon(Icons.directions_car),
+                  ),
+                  // Tambahkan konten tab lain di sini
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+  );
               }else if(item.name==menuItems[3].name){
                 return kemampuan();
               }else if(item.name==menuItems[4].name){
@@ -699,6 +733,68 @@ final ScrollController _scrollController = ScrollController();
   );
 
 
+}
+
+class portofolio extends StatelessWidget {
+  const portofolio({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+          length: 6,
+          child: Column(
+            children: <Widget>[
+              ButtonsTabBar(
+                backgroundColor: Colors.red,
+                unselectedBackgroundColor: Colors.grey[300],
+                unselectedLabelStyle: TextStyle(color: Colors.black),
+                labelStyle:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                tabs: [
+                  Tab(
+                    icon: Icon(Icons.directions_car),
+                    text: "car",
+                  ),
+                  Tab(
+                    icon: Icon(Icons.directions_transit),
+                    text: "transit",
+                  ),
+                  Tab(icon: Icon(Icons.directions_bike)),
+                  Tab(icon: Icon(Icons.directions_car)),
+                  Tab(icon: Icon(Icons.directions_transit)),
+                  Tab(icon: Icon(Icons.directions_bike)),
+                ],
+              ),
+              Expanded(
+                child: TabBarView(
+                  children: <Widget>[
+                    Center(
+                      child: Icon(Icons.directions_car),
+                    ),
+                    Center(
+                      child: Icon(Icons.directions_transit),
+                    ),
+                    Center(
+                      child: Icon(Icons.directions_bike),
+                    ),
+                    Center(
+                      child: Icon(Icons.directions_car),
+                    ),
+                    Center(
+                      child: Icon(Icons.directions_transit),
+                    ),
+                    Center(
+                      child: Icon(Icons.directions_bike),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+  }
 }
 
 enum IndicatorSide { start, end }
