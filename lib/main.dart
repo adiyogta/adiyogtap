@@ -216,8 +216,8 @@ get w => MediaQuery.sizeOf(context).width;
     num scrollPosition = index * h; // Sesuaikan dengan posisi vertikal yang diinginkan
     _scrollController.animateTo(
       scrollPosition as double,
-      duration: Duration(milliseconds: 400),
-      curve: Curves.easeInOut,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeInQuint,
     );
   }
 
@@ -285,31 +285,33 @@ get w => MediaQuery.sizeOf(context).width;
                     ),
                   ),
                   Positioned(
-          top: 20,
-          left: 20,
-          child: Column(
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          child: Row(
             children: [
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer2(0),
                 child: Text('Scroll to Container 1'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer2(1),
                 child: Text('Scroll to Container 2'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer2(2),
                 child: Text('Scroll to Container 3'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer2(3),
                 child: Text('Scroll to Container 4'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer2(4),
                 child: Text('Scroll to Container 5'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer2(5),
                 child: Text('Scroll to Container 6'),
               ),
@@ -358,31 +360,39 @@ get w => MediaQuery.sizeOf(context).width;
           ),
         ),
         Positioned(
-          bottom: 20,
+          top: 0,
+          right: 0,
+          bottom: 0,
           left: 20,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ElevatedButton(
+        TextButton(
+                onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => homePage(),)),
+                child: Text('home'),
+              ),
+              TextButton(
                 onPressed: () => scrollToContainer(0),
                 child: Text('Scroll to Container 1'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer(1),
                 child: Text('Scroll to Container 2'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer(2),
                 child: Text('Scroll to Container 3'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer(3),
                 child: Text('Scroll to Container 4'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer(4),
                 child: Text('Scroll to Container 5'),
               ),
-              ElevatedButton(
+              TextButton(
                 onPressed: () => scrollToContainer(5),
                 child: Text('Scroll to Container 6'),
               ),
