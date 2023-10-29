@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+const abuabu = Color(0xffD9D9D9);
 const kuning1 = Color(0xFFffffb7);
 const kuning2 = Color(0xFFfff192);
 const kuning3 = Color(0xFFffea61);
@@ -9,6 +10,7 @@ const kuning4 = Color(0xFFffdd3c);
 const kuning5 = Color.fromARGB(255, 245, 188, 0);
 const putih = Color(0xFFffffff);
 const hitam = Color.fromARGB(255, 12, 12, 12);
+
 
 void main() {
   runApp(MyApp());
@@ -249,7 +251,9 @@ class _tentangSayaState extends State<tentangSaya> {
   ScrollController _scrollController = ScrollController();
   ScrollController _scrollController2 = ScrollController();
   ScrollController _scrollEducation = ScrollController();
+  ScrollController _scrollEducation2 = ScrollController();
   IconData icon = Icons.arrow_forward_ios;
+  
 
   get h => MediaQuery.sizeOf(context).height;
 get w => MediaQuery.sizeOf(context).width;
@@ -286,6 +290,15 @@ get w => MediaQuery.sizeOf(context).width;
     num scrollPosition2 = index * w; // Sesuaikan dengan posisi vertikal yang diinginkan
     _scrollController2.animateTo(
       scrollPosition2 as double,
+      duration: Duration(milliseconds: 400),
+      curve: Curves.easeInOutQuint,
+    );
+  }
+
+  void scrollEducation2(int index) {
+   num scrollEdu2 = index * (w*0.8); // Sesuaikan dengan posisi vertikal yang diinginkan
+    _scrollEducation2.animateTo(
+      scrollEdu2 as double,
       duration: Duration(milliseconds: 400),
       curve: Curves.easeInOutQuint,
     );
@@ -339,11 +352,7 @@ get w => MediaQuery.sizeOf(context).width;
                     height: h,
                     width: w,
                     decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomCenter,
-                        colors: [kuning2,putih,putih,kuning1])
-                    ),
+                      color: abuabu),
                     child: LayoutBuilder(
                       builder: (context,cons) {
                         if(cons.maxWidth>600){
@@ -437,7 +446,7 @@ get w => MediaQuery.sizeOf(context).width;
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [                 
                                 Text('Saya ',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.w400, color: hitam)),
-                                Text('Adi Yogta Putra ',style: GoogleFonts.sono(fontSize: textSize2, fontWeight: FontWeight.bold, color: hitam)),
+                                Text('Adi Yogta Putra ',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
                                 ],
                               ),
                               Text('Desainer Grafis / Programmer',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.w400, color: hitam)),
@@ -544,10 +553,7 @@ get w => MediaQuery.sizeOf(context).width;
                     height: h,
                     width: w,
                     decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomLeft,
-                        colors: [kuning1,putih,putih,kuning2])
+                      color: abuabu
                     ),
                     child: LayoutBuilder(
                       builder: (context,cons) {
@@ -574,94 +580,94 @@ get w => MediaQuery.sizeOf(context).width;
                                       SingleChildScrollView(
                                         controller: _scrollEducation,
                                         scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                                        margin: const EdgeInsets.only(right: 20),
-                                                        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
-                                                        width: 350,
-                                                        decoration: BoxDecoration(
-                                                          color: kuning2,
-                                                          shape: BoxShape.rectangle,
-                                                          borderRadius: BorderRadius.circular(23)
+                                        child: IntrinsicHeight(
+                                          child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                          margin: const EdgeInsets.only(right: 20),
+                                                          padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                          width: 350,
+                                                          decoration: BoxDecoration(
+                                                            color: kuning2,
+                                                            shape: BoxShape.rectangle,
+                                                            borderRadius: BorderRadius.circular(23)
+                                                          ),
+                                                          child: 
+                                                        Column(
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                          children: [
+                                                            Text('SD',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                            Text('SDN 1 Beringin Raya Kemiling Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                            Text('2004-2010',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                          
+                                                          ],
                                                         ),
-                                                        child: 
-                                                      Column(
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                        children: [
-                                                          Text('SD',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
-                                                          Text('SDN 1 Beringin Raya Kemiling Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                                          Text('',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                                          Text('2004-2010',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                                                        
-                                                        ],
-                                                      ),
-                                                      ),
-                                            Container(
-                                              margin: const EdgeInsets.only(right: 20),
-                                              padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
-                                              width: 350,
-                                              decoration: BoxDecoration(
-                                                color: kuning4,
-                                                shape: BoxShape.rectangle,
-                                                borderRadius: BorderRadius.circular(23)
+                                                        ),
+                                              Container(
+                                                margin: const EdgeInsets.only(right: 20),
+                                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                width: 350,
+                                                decoration: BoxDecoration(
+                                                  color: kuning4,
+                                                  shape: BoxShape.rectangle,
+                                                  borderRadius: BorderRadius.circular(23)
+                                                ),
+                                                child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Text('SMP',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                  Text('MTS AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                  Text('2010-2013',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                
+                                                ],
                                               ),
-                                              child: 
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
-                                                Text('SMP',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
-                                                Text('MTS AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                                Text(' ',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                                                Text('2010-2013',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                                              
-                                              ],
-                                            ),
-                                            ),
-                                            Container(
-                                              margin: const EdgeInsets.only(right: 20),
-                                              padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
-                                              width: 350,
-                                              decoration: BoxDecoration(
-                                                color: kuning2,
-                                                shape: BoxShape.rectangle,
-                                                borderRadius: BorderRadius.circular(23)
                                               ),
-                                              child: 
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
-                                                Text('SMA',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
-                                                Text('MA AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                                Text(' ',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                                                Text('2013-2016',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                                              
-                                              ],
-                                            ),
-                                            ),
-                                            Container(
-                                              padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
-                                              width: 350,
-                                              decoration: BoxDecoration(
-                                                color: kuning4,
-                                                shape: BoxShape.rectangle,
-                                                borderRadius: BorderRadius.circular(23)
+                                              Container(
+                                                margin: const EdgeInsets.only(right: 20),
+                                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                width: 350,
+                                                decoration: BoxDecoration(
+                                                  color: kuning2,
+                                                  shape: BoxShape.rectangle,
+                                                  borderRadius: BorderRadius.circular(23)
+                                                ),
+                                                child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Text('SMA',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                  Text('MA AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                  Text('2013-2016',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                
+                                                ],
                                               ),
-                                              child: 
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                              children: [
-                                                Text('Strata 1',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
-                                                Text('Universitas Muhammadiyah Yogyakarta',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                                Text('2016-2023',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                                              ],
-                                            ),
-                                            ),
-                                          ],
+                                              ),
+                                              Container(
+                                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                width: 350,
+                                                decoration: BoxDecoration(
+                                                  color: kuning4,
+                                                  shape: BoxShape.rectangle,
+                                                  borderRadius: BorderRadius.circular(23)
+                                                ),
+                                                child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Text('Strata 1',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                  Text('Universitas Muhammadiyah Yogyakarta',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                  Text('2016-2023',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                ],
+                                              ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Positioned(
@@ -798,7 +804,236 @@ get w => MediaQuery.sizeOf(context).width;
                           ],
                         );
                        }else{
-                        return Text('a');
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text('RESUME',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
+                                  const Divider(
+                                    height: 10,
+                                    color: hitam,
+                                    ),Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Pendidikan',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                  const SizedBox(height: 20,),
+                                  Row(
+                                    children: [
+                                      TextButton(onPressed: () => scrollEducation2(0), child: Text('SD')),
+                                      TextButton(onPressed: () => scrollEducation2(1), child: Text('SD')),
+                                      TextButton(onPressed: () => scrollEducation2(2), child: Text('SD')),
+                                      TextButton(onPressed: () => scrollEducation2(3), child: Text('SD')),
+                                    ],
+                                  ),
+                                      SingleChildScrollView(
+                                        controller: _scrollEducation2,
+                                        scrollDirection: Axis.horizontal,
+                                        child: IntrinsicHeight(
+                                          child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                          margin: const EdgeInsets.only(right: 20),
+                                                          padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                          width: w*0.8,
+                                                          decoration: BoxDecoration(
+                                                            color: kuning2,
+                                                            shape: BoxShape.rectangle,
+                                                            borderRadius: BorderRadius.circular(23)
+                                                          ),
+                                                          child: 
+                                                        Column(
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                          children: [
+                                                            Text('SD',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                            Text('SDN 1 Beringin Raya Kemiling Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                            Text('2004-2010',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                          
+                                                          ],
+                                                        ),
+                                                        ),
+                                              Container(
+                                                margin: const EdgeInsets.only(right: 20),
+                                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                width: w*0.8,
+                                                decoration: BoxDecoration(
+                                                  color: kuning4,
+                                                  shape: BoxShape.rectangle,
+                                                  borderRadius: BorderRadius.circular(23)
+                                                ),
+                                                child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Text('SMP',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                  Text('MTS AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                  Text('2010-2013',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                
+                                                ],
+                                              ),
+                                              ),
+                                              Container(
+                                                margin: const EdgeInsets.only(right: 20),
+                                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                width: w*0.8,
+                                                decoration: BoxDecoration(
+                                                  color: kuning2,
+                                                  shape: BoxShape.rectangle,
+                                                  borderRadius: BorderRadius.circular(23)
+                                                ),
+                                                child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Text('SMA',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                  Text('MA AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                  Text('2013-2016',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                
+                                                ],
+                                              ),
+                                              ),
+                                              Container(
+                                                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                                width: w*0.8,
+                                                decoration: BoxDecoration(
+                                                  color: kuning4,
+                                                  shape: BoxShape.rectangle,
+                                                  borderRadius: BorderRadius.circular(23)
+                                                ),
+                                                child: 
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Text('Strata 1',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                  Text('Universitas Muhammadiyah Yogyakarta',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
+                                                  Text('2016-2023',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                ],
+                                              ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                  const SizedBox(height: 30,),
+                                  Text('Pengalaman',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                  const SizedBox(height: 20,),
+                                  Container(
+                                    margin: const EdgeInsets.only(bottom: 20),
+                                    padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                    width: w,
+                                    decoration: BoxDecoration(
+                                      color: kuning3,
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.circular(23)
+                                    ),
+                                    child: 
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text('Programmer Magang Di Perusahaan Monte Moria Indonesia',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                      // Text('Membuat website admin restaurant berbasis POST dengan beranggotakan 2 orang dengan platform Angular JS',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('April 2019 - Agustus 2019',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                          IconButton(
+                                          onPressed: (){},
+                                          icon: Container(
+                                            decoration: BoxDecoration(
+                                              color: putih,
+                                              shape: BoxShape.rectangle
+                                            ),
+                                            child: Icon(Icons.open_in_full,)))
+                                        ],
+                                      ),
+                                    
+                                    ],
+                                  ),
+                                  ),
+                                  Container(
+                                          margin: const EdgeInsets.only(bottom: 20),
+                                          padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                          width: w,
+                                          decoration: BoxDecoration(
+                                            color: kuning2,
+                                            shape: BoxShape.rectangle,
+                                            borderRadius: BorderRadius.circular(23)
+                                          ),
+                                          child: 
+                                        SingleChildScrollView(
+                                          scrollDirection: Axis.vertical,
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Text('Membuat Project Aplikasi Arisan',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                              // Text('Dalam tim 3 orang, saya berperan sebagai programmer menggunakan framework Flutter untuk mengembangkan aplikasi arisan berbasis Android dengan fungsi CRUD.',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Text('Februari 2021 - April 2021',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                   IconButton(
+                                          onPressed: (){},
+                                          icon: Container(
+                                            decoration: BoxDecoration(
+                                              color: putih,
+                                              shape: BoxShape.rectangle
+                                            ),
+                                            child: Icon(Icons.open_in_full,)))
+                                                ],
+                                              ),
+                                            
+                                            ],
+                                          ),
+                                        ),
+                                        ),
+                                  Container(
+                                          padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+                                          width: w,
+                                          decoration: BoxDecoration(
+                                            color: kuning3,
+                                            shape: BoxShape.rectangle,
+                                            borderRadius: BorderRadius.circular(23)
+                                          ),
+                                          child: 
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text('Editor Video Perusahaan Latifa Jewelry',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                            // Text('Mengambil gambar dan video cincin untuk bahan membuat video',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                            // Text('Membuat konten Desain dan video harian dengan isi berupa promosi penjualan cincin',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text('Juli 2021 - Desember 2022',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
+                                                 IconButton(
+                                          onPressed: (){},
+                                          icon: Container(
+                                            decoration: BoxDecoration(
+                                              color: putih,
+                                              shape: BoxShape.rectangle
+                                            ),
+                                            child: Icon(Icons.open_in_full,)))
+                                              ],
+                                            ),
+                                          
+                                          ],
+                                        ),
+                                        ),
+                                
+                                                  ],
+                              ),
+                            
+                          ],
+                        );
+                       
                        }
                       }
                     ),
@@ -810,10 +1045,7 @@ get w => MediaQuery.sizeOf(context).width;
                     height: h,
                     width: w,
                     decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomCenter,
-                        colors: [kuning2,putih,putih,kuning1])
+                      color: abuabu
                     ),
                     child: Column(
                       children: [
@@ -829,10 +1061,7 @@ get w => MediaQuery.sizeOf(context).width;
                     height: h,
                     width: w,
                     decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomLeft,
-                        colors: [kuning1,putih,putih,kuning2])
+                      color: abuabu
                     ),
                     child: LayoutBuilder(
                       builder: (context,cons) {
@@ -923,15 +1152,247 @@ get w => MediaQuery.sizeOf(context).width;
           
                   // Container 5
                   Container(
+                    padding:w<600 ?EdgeInsets.only(top: 30,left: 20) : EdgeInsets.only(top: 30,left: 190),
                     height: h,
-                    color: Colors.purple,
-                    // Konten Container 5
-                  ),
+                    width: w,
+                    decoration: const BoxDecoration(
+                      color: abuabu
+                    ),
+                    child: LayoutBuilder(
+                      builder: (context,cons) {
+                        if(cons.maxWidth > 1000){
+                          return Column(
+                             children: [
+                               Text('KONTAK REFRENSI',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
+                              const Divider(height: 10,color: hitam),
+                              IntrinsicHeight(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  children: [
+                                    Container(
+                                      alignment: Alignment.center,
+                                      width: w*0.35,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(15)
+                                      ),
+                                      child: Text('Jika Anda membutuhkan referensi langsung tentang saya, silakan hubungi mantan rekan dan teman yang pernah berkolaborasi dengan saya.',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: hitam),textAlign: TextAlign.center),
+                                    ),
+                                    SizedBox(
+                                      width: w*0.4,
+                                      height: MediaQuery.sizeOf(context).height*0.45,
+                                      child: ListView.builder(
+                                        itemCount: teman.length,
+                                        itemBuilder: (context,index){
+                                          return Container(
+                                            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                                            margin: const EdgeInsets.all(15),
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.rectangle,
+                                              color: hitam,
+                                              borderRadius: BorderRadius.circular(20)
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('Nama',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: putih),),
+                                                    Text('No WA',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: putih),),
+                                                  ],
+                                                ),
+                                                const SizedBox(width: 20,),
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(': ${teman[index].name}',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: putih),),
+                                                    Text(': ${teman[index].noTelp}',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: putih),),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                      }),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+ 
+                          );
+                        }else{
+                          return Column(
+                             children: [
+                               Text('KONTAK REFRENSI',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
+                              const Divider(height: 10,color: hitam),
+                        Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 25),
+                                      margin: const EdgeInsets.symmetric(vertical: 20,horizontal: 25),
+                                      alignment: Alignment.center,
+                                      width: w*0.35,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(15)
+                                      ),
+                                      child: Text('Jika Anda membutuhkan referensi langsung tentang saya, silakan hubungi mantan rekan dan teman yang pernah berkolaborasi dengan saya.',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: hitam),textAlign: TextAlign.center),
+                                    ),
+                                    SizedBox(
+                                      width: w*0.4,
+                                      height: MediaQuery.sizeOf(context).height*0.45,
+                                      child: ListView.builder(
+                                        itemCount: teman.length,
+                                        itemBuilder: (context,index){
+                                          return Container(
+                                            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                                            margin: w > 600 ? const EdgeInsets.all(15) : const EdgeInsets.symmetric(horizontal: 25,vertical: 5 ),
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.rectangle,
+                                              color: hitam,
+                                              borderRadius: BorderRadius.circular(20)
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('Nama',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: putih),),
+                                                    Text('No WA',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: putih),),
+                                                  ],
+                                                ),
+                                                const SizedBox(width: 20,),
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(': ${teman[index].name}',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: putih),),
+                                                    Text(': ${teman[index].noTelp}',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: putih),),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                      }),
+                                    ),
+                                  ],
+                                ),
+                              
+                            ],
+ 
+                          );
+                        }
+                      }
+                    ),
+                    ),
           
                   // Container 6
                   Container(
+                    padding:w<600 ?EdgeInsets.only(top: 30,left: 20) : EdgeInsets.only(top: 30,left: 190),
                     height: h,
-                    color: Colors.yellow,
+                    width: w,
+                    decoration: const BoxDecoration(
+                      color: abuabu
+                    ),
+                    child: LayoutBuilder(
+                      builder: (context,cons) {
+                        if(cons.maxWidth>100){
+                          return Column(
+                            children: [
+                               Text('KONTAK REFRENSI',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
+                              const Divider(height: 10,color: hitam),
+                              Padding(
+                                padding: const EdgeInsets.all(35.0),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    SizedBox(
+                                      width: MediaQuery.sizeOf(context).width*0.35,
+                                      child: Text('Jangan ragu untuk menghubungi saya jika Anda ingin berbicara lebih lanjut atau berkolaborasi. Saya selalu terbuka untuk diskusi, pertanyaan, atau peluang baru. Anda dapat menghubungi saya melalui email atau melalui media sosial.',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: hitam))),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+                                      decoration: BoxDecoration(
+                                        color: putih,
+                                        shape: BoxShape.rectangle,
+                                        borderRadius: BorderRadius.circular(25),
+                                        border: Border.all(
+                                          color: hitam, // Warna garis
+                                          width: 1.3,           // Lebar garis
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: hitam,
+                                            offset: Offset(3,5),
+                                            blurRadius: 0,
+                                            spreadRadius: 1,
+                                          )
+                                        ]
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                const Icon(
+                                                  Icons.email,
+                                                  size: 34,
+                                                  color: kuning5,
+                                                ),
+                                                const SizedBox(width: 15,),
+                                                Text('adiyogtap@gmail.com',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: hitam)),
+                                              ],
+                                            ),
+                                            Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                const Icon(
+                                                  Icons.call,
+                                                  size: 34,
+                                                  color: hitam,
+                                                ),
+                                                const SizedBox(width: 15,),
+                                                Text('085723949679',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: hitam)),
+                                              ],
+                                            ),
+                                            Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                const Icon(
+                                                  Icons.link,
+                                                  size: 34,
+                                                  color: hitam,
+                                                ),
+                                                const SizedBox(width: 15,),
+                                                Text('@adiyogtap',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.normal,color: hitam)),
+                                                IconButton(onPressed: (){},
+                                                icon: const Icon(
+                                                  Icons.open_in_new,
+                                                  size: 30,
+                                                  color: hitam,
+                                                ))
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        }else{
+                          return Text('a');
+                        }
+                      }
+                    ),
                     // Konten Container 6
                   ),
                 ],
@@ -946,11 +1407,7 @@ get w => MediaQuery.sizeOf(context).width;
               height: sizeBar,
               width: 180,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  tileMode: TileMode.clamp,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [hitam,Colors.white]),
+                color: kuning5,
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(22)
               ),
@@ -966,100 +1423,89 @@ get w => MediaQuery.sizeOf(context).width;
                     TextButton(
                       onPressed: () => scrollToContainer(0),
                       child: Container(
-                        child: Text('Tentang Saya')),
+                        child: Text('Tentang Saya',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam))),
                     ),
                     TextButton(
                       onPressed: () => scrollToContainer(1),
-                      child: Text('Resume'),
+                      child: Text('Resume',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                     ),
                     TextButton(
                       onPressed: () => scrollToContainer(2),
-                      child: Text('Scroll to Container 2'),
+                      child: Text('Portofolio',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                     ),
                     TextButton(
                       onPressed: () => scrollToContainer(3),
-                      child: Text('Keahlian'),
+                      child: Text('Keahlian',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                     ),
                     TextButton(
                       onPressed: () => scrollToContainer(4),
-                      child: Text('Scroll to Container 2'),
+                      child: Text('Kontak Refrensi',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                     ),
                     TextButton(
                       onPressed: () => scrollToContainer(5),
-                      child: Text('Scroll to Container 2'),
+                      child: Text('Kontak Saya',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                     ),
                   ],
                 ),
               ),
             ),
           ) : w < 600 ? Positioned(
-            top: top + (h*0.1),
-            left: 0,
+           bottom: 20,
+           left: 5,
+           right: 5,
             child: Container(
-              width: 40,
-              height: sizeBar - (h*0.2) ,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    blurStyle: BlurStyle.normal,
-                    color: Colors.black38,
-                    blurRadius: 1,
-                    spreadRadius: 0,
-                    offset: Offset(2,0)
-                  )
-                ],
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Colors.white,hitam]),
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.only(bottomRight: Radius.circular(22),topRight: Radius.circular(22))
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                    TextButton(
-                    onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => homePage(),)),
-                    child: Icon(Icons.home_rounded,color: putih,)),
-                  
-                  TextButton(
-                    onPressed: () => scrollToContainer(0),
-                    child: Container(
-                      
-                      child: Icon(Icons.account_circle,color: putih,)),
-                  ),
-                  TextButton(
-                    onPressed: () => scrollToContainer(1),
-                    child: Icon(Icons.home_rounded,color: putih,),
-                  ),
-                  TextButton(
-                    onPressed: () => scrollToContainer(2),
-                    child: Icon(Icons.home_rounded,color: putih,),
-                  ),
-                  TextButton(
-                    onPressed: () => scrollToContainer(3),
-                    child: Icon(Icons.home_rounded,color: putih,),
-                  ),
-                  TextButton(
-                    onPressed: () => scrollToContainer(4),
-                    child: Icon(Icons.home_rounded,color: putih,),
-                  ),
-                  TextButton(
-                    onPressed: () => scrollToContainer(5),
-                    child: Icon(Icons.home_rounded,color: putih,),
-                  ),
-                ],
-              ),
+              margin: EdgeInsets.symmetric(horizontal: 20),
+                width: w-10,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: kuning5,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(22)
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                      IconButton(
+                      onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => homePage(),)),
+                      icon: Icon(Icons.home_rounded,color: hitam,)),
+                    
+                    IconButton(
+                      onPressed: () => scrollToContainer(0),
+                      icon: Icon(Icons.person,color: hitam,),
+                    ),
+                    IconButton(
+                      onPressed: () => scrollToContainer(1),
+                      icon: Icon(Icons.description,color: hitam,),
+                    ),
+                    IconButton(
+                      onPressed: () => scrollToContainer(2),
+                      icon: Icon(Icons.work,color: hitam,),
+                    ),
+                    IconButton(
+                      onPressed: () => scrollToContainer(3),
+                      icon: Icon(Icons.star,color: hitam,),
+                    ),
+                    IconButton(
+                      onPressed: () => scrollToContainer(4),
+                      icon: Icon(Icons.contacts,color: hitam,),
+                    ),
+                    IconButton(
+                      onPressed: () => scrollToContainer(5),
+                      icon: Icon(Icons.mail,color: hitam,),
+                    ),
+                  ],
+                ),
+              
             ),
           ) : Positioned(
             top: top,
             left: 10,
             child: Container(
               height: sizeBar,
-              width: 180,
+              width: 160,
               decoration: BoxDecoration(
-                color: hitam,
+                color: kuning5,
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(22)
               ),
@@ -1069,33 +1515,31 @@ get w => MediaQuery.sizeOf(context).width;
                 children: [
                     TextButton(
                     onPressed: () => Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => homePage(),)),
-                    child: Icon(Icons.home_rounded,color: putih,)),
+                    child: const Icon(Icons.home_rounded,color: putih,)),
                   
                   TextButton(
                     onPressed: () => scrollToContainer(0),
-                    child: Container(
-                      
-                      child: Text('Tentang Saya')),
+                    child:Text('Tentang Saya',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                   ),
                   TextButton(
                     onPressed: () => scrollToContainer(1),
-                    child: Text('Resume'),
+                    child: Text('Resume',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                   ),
                   TextButton(
                     onPressed: () => scrollToContainer(2),
-                    child: Text('Scroll to Container 3'),
+                    child: Text('Portofolio',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                   ),
                   TextButton(
                     onPressed: () => scrollToContainer(3),
-                    child: Text('Keahlian'),
+                    child: Text('Keahlian',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                   ),
                   TextButton(
                     onPressed: () => scrollToContainer(4),
-                    child: Text('Scroll to Container 5'),
+                    child: Text('Kontak Refrensi',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                   ),
                   TextButton(
                     onPressed: () => scrollToContainer(5),
-                    child: Text('Scroll to Container 6'),
+                    child: Text('Kontak Saya',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                   ),
                 ],
               ),
@@ -1106,3 +1550,30 @@ get w => MediaQuery.sizeOf(context).width;
     );
   }
 }
+
+class Teman {
+  final String name;
+  final String noTelp;
+
+
+  Teman({
+    required this.name,
+    required this.noTelp,
+  });
+}
+
+final List<Teman> teman = [
+
+  Teman(
+    name: 'Ocky Dimas',
+    noTelp: '0895421431085'
+  ),
+  Teman(
+    name: 'Rizky Anfasa',
+    noTelp: '081215736202'
+  ),
+  Teman(
+    name: 'Edo Septian',
+    noTelp: '081373270499'
+  ),
+];
