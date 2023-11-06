@@ -45,9 +45,9 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    double textSize1 = (screenWidth < 600 && screenHeight < 600) ? 35.0 : (screenWidth < 1200  && screenHeight < 1200) ? 45.0 : (screenWidth > 1200 && screenHeight > 1200)?55.0 : screenWidth < 600 ? 35 : screenWidth < 1200 ? 45 : screenWidth > 1200 ?50 : screenHeight < 600 ? 55 : screenHeight < 1200 ? 45 : screenHeight > 1200 ? 35 : 45;
-    double textSize2 = (screenWidth < 600 && screenHeight < 600) ? 20.0 : (screenWidth < 1200  && screenHeight < 1200) ? 30.0 : (screenWidth > 1200 && screenHeight > 1200)?40.0 : screenWidth < 600 ? 20 : screenWidth < 1200 ? 30 : screenWidth > 1200 ?40 : screenHeight < 600 ? 40 : screenHeight < 1200 ? 30 : screenHeight > 1200 ? 20 : 30;
-    double textSize3 = (screenWidth < 600 && screenHeight < 600) ? 11.0 : (screenWidth < 1200  && screenHeight < 1200) ? 17.0 : (screenWidth > 1200 && screenHeight > 1200)?23.0 : screenWidth < 600 ? 11 : screenWidth < 1200 ? 17 : screenWidth > 1200 ?23 : screenHeight < 600 ? 23 : screenHeight < 1200 ? 17 : screenHeight > 1200 ?11 : 16;
+    double textSize1 = (screenWidth < 600 && screenHeight < 600) ? 35.0 : (screenWidth < 840  && screenHeight < 840) ? 45.0 : (screenWidth > 840 && screenHeight > 840)?55.0 : screenWidth < 600 ? 35 : screenWidth < 840 ? 45 : screenWidth > 840 ?50 : screenHeight < 600 ? 55 : screenHeight < 840 ? 45 : screenHeight > 840 ? 35 : 45;
+    double textSize2 = (screenWidth < 600 && screenHeight < 600) ? 20.0 : (screenWidth < 840  && screenHeight < 840) ? 30.0 : (screenWidth > 840 && screenHeight > 840)?40.0 : screenWidth < 600 ? 20 : screenWidth < 840 ? 30 : screenWidth > 840 ?40 : screenHeight < 600 ? 40 : screenHeight < 840 ? 30 : screenHeight > 840 ? 20 : 30;
+    double textSize3 = (screenWidth < 600 && screenHeight < 600) ? 11.0 : (screenWidth < 840  && screenHeight < 840) ? 17.0 : (screenWidth > 840 && screenHeight > 840)?23.0 : screenWidth < 600 ? 11 : screenWidth < 840 ? 17 : screenWidth > 840 ?23 : screenHeight < 600 ? 23 : screenHeight < 840 ? 17 : screenHeight > 840 ?11 : 16;
     return SafeArea(
       child: LayoutBuilder(
         builder: (context,cons) {
@@ -231,7 +231,7 @@ class _homePageState extends State<homePage> {
                 ),
               ),
               Container(
-                alignment: screenWidth<1000?Alignment.center: Alignment.bottomCenter,
+                alignment: screenWidth<840?Alignment.center: Alignment.bottomCenter,
                 width: MediaQuery.sizeOf(context).width*0.5,
                 decoration: const BoxDecoration(
                   color: kuning5,
@@ -347,9 +347,9 @@ get w => MediaQuery.sizeOf(context).width;
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    double textSize1 = (screenWidth < 600 && screenHeight < 600) ? 35.0 : (screenWidth < 1200  && screenHeight < 1200) ? 45.0 : (screenWidth > 1200 && screenHeight > 1200)?55.0 : screenWidth < 600 ? 35 : screenWidth < 1200 ? 45 : screenWidth > 1200 ?50 : screenHeight < 600 ? 55 : screenHeight < 1200 ? 45 : screenHeight > 1200 ? 35 : 45;
-    double textSize2 = (screenWidth < 600 && screenHeight < 600) ? 20.0 : (screenWidth < 1200  && screenHeight < 1200) ? 30.0 : (screenWidth > 1200 && screenHeight > 1200)?40.0 : screenWidth < 600 ? 20 : screenWidth < 1200 ? 30 : screenWidth > 1200 ?40 : screenHeight < 600 ? 40 : screenHeight < 1200 ? 30 : screenHeight > 1200 ? 20 : 30;
-    double textSize3 = (screenWidth < 600 && screenHeight < 600) ? 11.0 : (screenWidth < 1200  && screenHeight < 1200) ? 17.0 : (screenWidth > 1200 && screenHeight > 1200)?23.0 : screenWidth < 600 ? 11 : screenWidth < 1200 ? 17 : screenWidth > 1200 ?23 : screenHeight < 600 ? 23 : screenHeight < 1200 ? 17 : screenHeight > 1200 ?11 : 16;
+    double textSize1 = (screenWidth < 600 && screenHeight < 600) ? 35.0 : (screenWidth < 840  && screenHeight < 840) ? 45.0 : (screenWidth > 840 && screenHeight > 840)?55.0 : screenWidth < 600 ? 35 : screenWidth < 840 ? 45 : screenWidth > 840 ?50 : screenHeight < 600 ? 55 : screenHeight < 840 ? 45 : screenHeight > 840 ? 35 : 45;
+    double textSize2 = (screenWidth < 600 && screenHeight < 600) ? 20.0 : (screenWidth < 840  && screenHeight < 840) ? 30.0 : (screenWidth > 840 && screenHeight > 840)?40.0 : screenWidth < 600 ? 20 : screenWidth < 840 ? 30 : screenWidth > 840 ?40 : screenHeight < 600 ? 40 : screenHeight < 840 ? 30 : screenHeight > 840 ? 20 : 30;
+    double textSize3 = (screenWidth < 600 && screenHeight < 600) ? 11.0 : (screenWidth < 840  && screenHeight < 840) ? 17.0 : (screenWidth > 840 && screenHeight > 840)?23.0 : screenWidth < 600 ? 11 : screenWidth < 840 ? 17 : screenWidth > 840 ?23 : screenHeight < 600 ? 23 : screenHeight < 840 ? 17 : screenHeight > 840 ?11 : 16;
 
     double top = h * 0.15;
     double sizeBar = h * 0.7;
@@ -1321,7 +1321,7 @@ get w => MediaQuery.sizeOf(context).width;
                        
                         child: LayoutBuilder(
                           builder: (context,cons) {
-                            if(cons.maxWidth > 1000){
+                            if(cons.maxWidth > 840){
                               return Column(
                                  children: [
                                    Text('KONTAK REFRENSI',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
