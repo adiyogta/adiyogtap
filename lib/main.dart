@@ -1858,22 +1858,22 @@ final List<Kategori> kategori = [
     listKategori: [
       ListKategori(
         nama: 'Flutter',
-        url: 'Flutter',
+        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
         detal: 'Flutter',
       ),
       ListKategori(
         nama: 'Flutter',
-        url: 'Flutter',
+        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
         detal: 'Flutter',
       ),
       ListKategori(
         nama: 'Flutter',
-        url: 'Flutter',
+        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
         detal: 'Flutter',
       ),
       ListKategori(
         nama: 'Flutter',
-        url: 'Flutter',
+        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
         detal: 'Flutter',
       ),
     ],
@@ -1882,8 +1882,73 @@ final List<Kategori> kategori = [
     nama: 'Desain',
     listKategori: [
       ListKategori(
-        nama: 'Desain',
-        url: 'Desain',
+        nama: 'IG Feed',
+        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Poster',
+        url: 'https://drive.google.com/uc?id=1d7GawDRoSUvMjtYzxAz7ZN-EPFn2JGrd',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'IG Story',
+        url: 'https://drive.google.com/uc?id=1d0vdFC4Wx_YmiuvNWC4lCcbBvIu9GNsZ',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'X Banner',
+        url: 'https://drive.google.com/uc?id=1d0sXsU8whS-sGXjoIDOdy4eqRr1rhNCC',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'X Banner',
+        url: 'https://drive.google.com/uc?id=1d--VNg4qIVs7tzhNOuF-0Zb2z9GXWgZI',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'X Banner',
+        url: 'https://drive.google.com/uc?id=1czFDItUaSD4FI0xcwm-2-W_t3UYxEs0U',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Logo',
+        url: 'https://drive.google.com/uc?id=12CV4r52KonvWmiiAYaBNI3CqdM2aGxYw',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Karakter',
+        url: 'https://drive.google.com/uc?id=12BpCnEpiBT8sD6Xk-TpGQfNYbElls8ar',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Kotak Makan',
+        url: 'https://drive.google.com/uc?id=125Hzb-pp5CN4NNz3uF8zYulcPAkTVmeB',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Logo',
+        url: 'https://drive.google.com/uc?id=11uWowPSKvqDXGDLXiLsCtuq-XXN7nijQ',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Kartu Nama Perusahaan',
+        url: 'https://drive.google.com/uc?id=11t8JR78IbYBD4OoPGvSNMGO2AHWdEgCl',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Kartu Undangan',
+        url: 'https://drive.google.com/uc?id=11i2xiqDujOCDmq39GCIH6FbIDgJdZcDb',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Cover Buku',
+        url: 'https://drive.google.com/uc?id=11_nURqqQrjva5UMcf8B2TeXN8etpL0Za',
+        detal: 'Desain',
+      ),
+      ListKategori(
+        nama: 'Poster Tour E-Sport',
+        url: 'https://drive.google.com/uc?id=11T_l0WpysxIO1hGwL8Ph3loNHOglz2b5',
         detal: 'Desain',
       ),
     ],
@@ -1893,7 +1958,7 @@ final List<Kategori> kategori = [
     listKategori: [
       ListKategori(
         nama: 'Foto',
-        url: 'Foto',
+        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
         detal: 'Foto',
       ),
     ],
@@ -1903,7 +1968,7 @@ final List<Kategori> kategori = [
     listKategori: [
       ListKategori(
         nama: 'Video',
-        url: 'Video',
+        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
         detal: 'Video',
       ),
     ],
