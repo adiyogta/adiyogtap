@@ -3,6 +3,7 @@
 
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -118,7 +119,11 @@ class _homePageState extends State<homePage> {
                                     borderRadius: BorderRadius.circular(25),
                                     color: kuning5,
                                   ),
-                                  child: Image.network('https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86'),
+                                  child: CachedNetworkImage(
+  imageUrl: 'https://photos.app.goo.gl/LW5xhyeQGyEHZv5v5',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+),
                                 )
                         ]),
                     ),
@@ -236,7 +241,11 @@ class _homePageState extends State<homePage> {
                 decoration: const BoxDecoration(
                   color: kuning5,
                 ),
-                child: Image.network('https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86',fit: BoxFit.fitWidth,),
+                child: CachedNetworkImage(
+  imageUrl: 'https://photos.app.goo.gl/LW5xhyeQGyEHZv5v5',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+),
               )
                       ]),
                   )
@@ -390,7 +399,12 @@ get w => MediaQuery.sizeOf(context).width;
                                       padding: EdgeInsets.only(top: top*0.25),
                                       child: Row(
                                         children: [
-                                           Image.network('https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',height: MediaQuery.sizeOf(context).height*0.35,),
+                                          CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.35,
+),
+                                         
                                            w < 1500 ? Expanded(
                                              child: Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -469,7 +483,11 @@ get w => MediaQuery.sizeOf(context).width;
                                       children: [
                                         Column(
                                           children: [
-                                            Image.network('https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',height: MediaQuery.sizeOf(context).height*0.4,),
+                                            CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.4,
+),
                                             TextButton(
                                               onPressed: (){},
                                               child: Container(
@@ -521,8 +539,12 @@ get w => MediaQuery.sizeOf(context).width;
                                       height: 10,
                                       color: hitam,
                                       ),
-                                    Image.network('https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',height: MediaQuery.sizeOf(context).height*0.20,),
-                                    Row(
+                                      CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.20,
+),
+                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [                 
                                       Text('Saya ',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.w400, color: hitam)),
@@ -1134,7 +1156,11 @@ get w => MediaQuery.sizeOf(context).width;
                                       child: Column(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Image.network('${list[inde].url}'),
+                                          CachedNetworkImage(
+  imageUrl: list[inde].url,
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.15,
+),
                                           Text(list[inde].nama),
                                           TextButton(onPressed: (){}, child: Text('Detail'))
                                         ],
@@ -1183,8 +1209,12 @@ get w => MediaQuery.sizeOf(context).width;
                 children: [
                   Column(
                     children: [
-                      Image.network('https://drive.google.com/uc?id=1bTrz76prqHj4QPkSwK1Ydinf3vQBrBc1',height: 50,),
-                      const SizedBox(height: 10,),
+                      CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=1bTrz76prqHj4QPkSwK1Ydinf3vQBrBc1',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: 50,
+),
+                       const SizedBox(height: 10,),
                       Text('Visual Studio Code',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
                     ],
                   ),
@@ -1200,15 +1230,23 @@ get w => MediaQuery.sizeOf(context).width;
                 children: [
                   Column(
                     children: [
-                      Image.network('https://drive.google.com/uc?id=14z2TnAKvi8ZMznR_2OtEc537xd9x0nlF',height: 50,),
-                      const SizedBox(height: 10,),
+                      CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=14z2TnAKvi8ZMznR_2OtEc537xd9x0nlF',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: 50,
+),
+                     const SizedBox(height: 10,),
                       Text('Adobe Premiere',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
                     ],
                   ),
                   const SizedBox(width: 20,),
                   Column(
                     children: [
-                      Image.network('https://drive.google.com/uc?id=1b8IH_j-x_WU7lYEzaQBEuv30eD6J7lhc',height: 50,),
+                      CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=1b8IH_j-x_WU7lYEzaQBEuv30eD6J7lhc',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: 50,
+),
                       const SizedBox(height: 10,),
                       Text('Adobe Photoshop',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
                     ],
@@ -1216,7 +1254,11 @@ get w => MediaQuery.sizeOf(context).width;
                   const SizedBox(width: 20,),
                   Column(
                     children: [
-                      Image.network('https://drive.google.com/uc?id=1N5Z_RX41TBhELaSoHhe9VFaSKM_TNM-2',height: 50,),
+                      CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=1N5Z_RX41TBhELaSoHhe9VFaSKM_TNM-2',
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: 50,
+),
                       const SizedBox(height: 10,),
                       Text('Corel Draw',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
                     ],
@@ -1288,11 +1330,12 @@ get w => MediaQuery.sizeOf(context).width;
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.network(
-                        imageUrls[index],
-                        height: 50,
-                        
-                      ),
+                       CachedNetworkImage(
+  imageUrl: imageUrls[index],
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),height: 50,
+),
+                     
                       const SizedBox(height: 10),
                       Text(
                         titles[index],
@@ -1858,22 +1901,22 @@ final List<Kategori> kategori = [
     listKategori: [
       ListKategori(
         nama: 'Flutter',
-        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
+        url: 'Flutter',
         detal: 'Flutter',
       ),
       ListKategori(
         nama: 'Flutter',
-        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
+        url: 'Flutter',
         detal: 'Flutter',
       ),
       ListKategori(
         nama: 'Flutter',
-        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
+        url: 'Flutter',
         detal: 'Flutter',
       ),
       ListKategori(
         nama: 'Flutter',
-        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
+        url: 'Flutter',
         detal: 'Flutter',
       ),
     ],
@@ -1882,73 +1925,8 @@ final List<Kategori> kategori = [
     nama: 'Desain',
     listKategori: [
       ListKategori(
-        nama: 'IG Feed',
-        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Poster',
-        url: 'https://drive.google.com/uc?id=1d7GawDRoSUvMjtYzxAz7ZN-EPFn2JGrd',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'IG Story',
-        url: 'https://drive.google.com/uc?id=1d0vdFC4Wx_YmiuvNWC4lCcbBvIu9GNsZ',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'X Banner',
-        url: 'https://drive.google.com/uc?id=1d0sXsU8whS-sGXjoIDOdy4eqRr1rhNCC',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'X Banner',
-        url: 'https://drive.google.com/uc?id=1d--VNg4qIVs7tzhNOuF-0Zb2z9GXWgZI',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'X Banner',
-        url: 'https://drive.google.com/uc?id=1czFDItUaSD4FI0xcwm-2-W_t3UYxEs0U',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Logo',
-        url: 'https://drive.google.com/uc?id=12CV4r52KonvWmiiAYaBNI3CqdM2aGxYw',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Karakter',
-        url: 'https://drive.google.com/uc?id=12BpCnEpiBT8sD6Xk-TpGQfNYbElls8ar',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Kotak Makan',
-        url: 'https://drive.google.com/uc?id=125Hzb-pp5CN4NNz3uF8zYulcPAkTVmeB',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Logo',
-        url: 'https://drive.google.com/uc?id=11uWowPSKvqDXGDLXiLsCtuq-XXN7nijQ',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Kartu Nama Perusahaan',
-        url: 'https://drive.google.com/uc?id=11t8JR78IbYBD4OoPGvSNMGO2AHWdEgCl',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Kartu Undangan',
-        url: 'https://drive.google.com/uc?id=11i2xiqDujOCDmq39GCIH6FbIDgJdZcDb',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Cover Buku',
-        url: 'https://drive.google.com/uc?id=11_nURqqQrjva5UMcf8B2TeXN8etpL0Za',
-        detal: 'Desain',
-      ),
-      ListKategori(
-        nama: 'Poster Tour E-Sport',
-        url: 'https://drive.google.com/uc?id=11T_l0WpysxIO1hGwL8Ph3loNHOglz2b5',
+        nama: 'Desain',
+        url: 'Desain',
         detal: 'Desain',
       ),
     ],
@@ -1958,7 +1936,7 @@ final List<Kategori> kategori = [
     listKategori: [
       ListKategori(
         nama: 'Foto',
-        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
+        url: 'Foto',
         detal: 'Foto',
       ),
     ],
@@ -1968,7 +1946,7 @@ final List<Kategori> kategori = [
     listKategori: [
       ListKategori(
         nama: 'Video',
-        url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
+        url: 'Video',
         detal: 'Video',
       ),
     ],
