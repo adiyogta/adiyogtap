@@ -6,7 +6,7 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const abuabu = Color(0xffD9D9D9);
 const kuning1 = Color(0xFFffffb7);
@@ -286,6 +286,14 @@ get w => MediaQuery.sizeOf(context).width;
     _scrollController2.dispose();
     _scrollEducation.dispose();
     super.dispose();
+  }
+
+  void _launchURL(String url) async {
+   if (await canLaunch('https://drive.google.com/file/d/$url/preview')) {
+      await launch('https://drive.google.com/file/d/$url/preview');
+   } else {
+      throw 'Could not launch https://drive.google.com/file/d/$url/preview';
+   }
   }
   
   void scrollToContainer(int index) {
@@ -1095,19 +1103,35 @@ get w => MediaQuery.sizeOf(context).width;
                                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                 children: [
                                                   Text(
-                                                    list[inde].nama,style: GoogleFonts.nunito(
+                                                    list[inde].nama,
+                                                    style: GoogleFonts.nunito(
                                                     fontStyle: FontStyle.normal,
                                                     fontSize: textSize3 - 4,
                                                     fontWeight: FontWeight.w400,
                                                     color: hitam,
                                                   ),),
                                                   TextButton(onPressed: (){
-                                                    showDialog(
+                                                    if(index==3){
+                                                      _launchURL(list[inde].url);
+                                                    }else{
+                                                      showDialog(
                                                       context: context,
                                                       builder: (BuildContext context) {
                                                         return AlertDialog(
-                                                          title: Text(list[inde].detal),
-                                                          content: index==3 ? webViewPG(url: index ==3 ?list[inde].url:'a') : CachedNetworkImage(
+                                                          title: Column(
+                                                            children: [
+                                                              Text(list[inde].detal,style: GoogleFonts.nunito(
+                                                    fontStyle: FontStyle.normal,
+                                                    fontSize: textSize3 - 2,
+                                                    fontWeight: FontWeight.w400,
+                                                    color: hitam)),
+                                                    const Divider(
+                                      height: 10,
+                                      color: kuning5,
+                                      ),
+                                                            ],
+                                                          ),
+                                                          content: CachedNetworkImage(
                                                 imageUrl:list[inde].url,
                                                 filterQuality: FilterQuality.medium,
                                                 placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
@@ -1119,13 +1143,24 @@ get w => MediaQuery.sizeOf(context).width;
                                                               onPressed: () {
                                                                 Navigator.of(context).pop();
                                                               },
-                                                              child: const Text('Close'),
+                                                              child: Text('Close',style: GoogleFonts.nunito(
+                                                    fontStyle: FontStyle.normal,
+                                                    fontSize: textSize3 - 4,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.red,),)
                                                             ),
                                                           ],
                                                         );
                                                       },
                                                     );
-                                                  }, child: const Text('Detail'))
+                                                   
+                                                    }
+                                                     
+                                                  }, child:Text('Detail',style: GoogleFonts.nunito(
+                                                    fontStyle: FontStyle.normal,
+                                                    fontSize: textSize3 - 4,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.blue,)))
                                                 ],
                                               )),
                                             ],
@@ -1813,27 +1848,7 @@ get w => MediaQuery.sizeOf(context).width;
   }
 }
 
-class webViewPG extends StatelessWidget {
-  final String url;
 
-  webViewPG({required this.url, Key? key}) : super(key: key);
-
-  late final WebViewController controllerVideo = _initController();
-
-  WebViewController _initController() {
-    final controller = WebViewController();
-    controller
-      ..setJavaScriptMode(JavaScriptMode.disabled)
-      ..loadRequest(Uri.parse('https://stackoverflow.com/questions/73539853/how-to-play-video-from-google-drive-in-better-player-flutter'));
-    return controller;
-  }
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: WebViewWidget(controller: controllerVideo));
-  }
-}
 
 class Teman {
   final String name;
@@ -1866,11 +1881,13 @@ class ListKategori {
   final String nama;
   final String url;
   final String detal;
+  final String? link;
 
   ListKategori({
     required this.nama,
     required this.url,
     required this.detal,
+    required this.link,
   });
 }
 
@@ -1892,6 +1909,7 @@ final List<Kategori> kategori = [
         nama: 'Portofolio',
         url: 'https://drive.google.com/uc?id=1dRVvyCBVe1UVp04d7jpqkZFsljPxMWd1',
         detal: 'Website portofolio saya yang saya buat menggunakan flutter',
+        link: null
       ),
     ],
   ),
@@ -1902,61 +1920,73 @@ final List<Kategori> kategori = [
         nama: 'X Banner',
         url: 'https://drive.google.com/uc?id=1d--VNg4qIVs7tzhNOuF-0Zb2z9GXWgZI',
         detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        link: null
       ),
       ListKategori(
         nama: 'X Banner',
         url: 'https://drive.google.com/uc?id=1d0sXsU8whS-sGXjoIDOdy4eqRr1rhNCC',
         detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        link: null
       ),
       ListKategori(
         nama: 'X Banner',
         url: 'https://drive.google.com/uc?id=1czFDItUaSD4FI0xcwm-2-W_t3UYxEs0U',
         detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        link: null
       ),
       ListKategori(
         nama: 'Logo',
         url: 'https://drive.google.com/uc?id=11uWowPSKvqDXGDLXiLsCtuq-XXN7nijQ',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Logo perusahaan yang bergerak dibidang cathering makanan dan dekorasi pernikahan',
+        link: null
       ),
       ListKategori(
         nama: 'Poster',
         url: 'https://drive.google.com/uc?id=1d7GawDRoSUvMjtYzxAz7ZN-EPFn2JGrd',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Poster untuk pembukaan lowongan kerja baru untuk perusahaan Latifa Jewelry',
+        link: null
       ),
       ListKategori(
         nama: 'Poster',
         url: 'https://drive.google.com/uc?id=11T_l0WpysxIO1hGwL8Ph3loNHOglz2b5',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Poster untuk perlombaan online influencer di Game Mobile Legends',
+        link: null
       ),
       ListKategori(
         nama: 'Logo',
         url: 'https://drive.google.com/uc?id=12CV4r52KonvWmiiAYaBNI3CqdM2aGxYw',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Logo desain untuk sebuah akun Instagram',
+        link: null
       ),
       ListKategori(
         nama: 'Kartu Nama',
         url: 'https://drive.google.com/uc?id=11t8JR78IbYBD4OoPGvSNMGO2AHWdEgCl',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Kartu Nama perusahaan yang bergerak dibidang cathering makanan dan dekorasi pernikahan',
+        link: null
       ),
       ListKategori(
         nama: 'Kartu Ucapan',
         url: 'https://drive.google.com/uc?id=11i2xiqDujOCDmq39GCIH6FbIDgJdZcDb',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Kartu Ucapan untuk lahiran anak',
+        link: null
       ),
       ListKategori(
         nama: 'Feed Instagram',
         url: 'https://drive.google.com/uc?id=1d25HRlxL1f7THE_PzZnwIBHQ1eZ4IXIe',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Fed Instagram Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        link: null
       ),
       ListKategori(
         nama: 'Cover Buku',
         url: 'https://drive.google.com/uc?id=11_nURqqQrjva5UMcf8B2TeXN8etpL0Za',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Cover buku untuk sekolah sebagai buku kurikulum',
+        link: null
       ),
       ListKategori(
         nama: 'Karikatur',
         url: 'https://drive.google.com/uc?id=12BpCnEpiBT8sD6Xk-TpGQfNYbElls8ar',
-        detal: 'X-Banner Penjualan Cincin pada saat saya bekerja di Latifa Jewelry',
+        detal: 'Karikatur Pesanan dari teman',
+        link: null
       ),
     ],
   ),
@@ -1966,22 +1996,26 @@ final List<Kategori> kategori = [
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dFDGh-gz2AwcLCDIsn4pwI52Hv0vm28-',
-        detal: 'Foto',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        link: null
       ),
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dKn8zDcfMAR011rvlqcX7xPWnLt0uLaC',
-        detal: 'Foto',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        link: null
       ),
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dPpcKYruo4lYF7V2883-JiQNH58Zs8-y',
-        detal: 'Foto',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        link: null
       ),
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dAy9E8_YZ8YcOQ3RUhpfTS-YfI9z0hYm',
-        detal: 'Foto',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        link: null
       ),
     ],
   ),
@@ -1991,17 +2025,20 @@ final List<Kategori> kategori = [
       ListKategori(
         nama: 'Shorts YT',
         url: '1d8vZo1TO6eL7fyPFdz5dgboy6P5Fhqj2',
-        detal: 'Video',
+        detal: 'Video Youtube Short untuk channel Jago Kicau',
+        link: null 
       ),
       ListKategori(
         nama: 'Reels IG',
         url: '1d7Cdc3xVANzzRbrZ9XyPEolqRZ459pQm',
-        detal: 'Video',
+        detal: 'Video Giveaway saat masih bekerja di perusahaan Latifa Jewelry',
+        link: null
       ),
       ListKategori(
         nama: 'Reels IG',
         url: '1d9ZK72ICYaxyHVVdB085HmtCgMekhbVE',
-        detal: 'Video',
+        detal: 'Video Giveaway saat masih bekerja di perusahaan Latifa Jewelry',
+        link: null
       ),
     ],
   ),
