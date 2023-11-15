@@ -1109,7 +1109,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                     color: hitam,
                                                   ),),
                                                   TextButton(onPressed: (){
-                                                    if(index==3){
+                                                    if(index==4){
                                                       _launchURL(list[inde].url);
                                                     }else{
                                                       showDialog(
@@ -1127,7 +1127,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                     height: 10,
                                                     color: kuning5,
                                                     ),
-                                                    list[inde].link!=null? Text('Link Github ${list[inde].link}' ?? ''):Container()
+                                                  index==0 && list[inde].link!=null? Text('Link Github : ${list[inde].link}') : index==2 && list[inde].link!=null? Text('Link Figma : ${list[inde].link}') :Container()
                                                             ],
                                                           ),
                                                           content: CachedNetworkImage(
@@ -1285,7 +1285,6 @@ get w => MediaQuery.sizeOf(context).width;
                   Text('"Flutter Developer"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3+2,fontWeight: FontWeight.bold,color: hitam),), const SizedBox(width: 20,),
                   Text('"Desain Grafis"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3+2,fontWeight: FontWeight.bold,color: hitam),), const SizedBox(width: 20,),
                   Text('"Editing Video"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3+2,fontWeight: FontWeight.bold,color: hitam),),
-            
                 ],
               ),
             ),
@@ -1909,6 +1908,12 @@ final List<Kategori> kategori = [
         detal: 'Website portofolio saya yang dibuat menggunakan flutter',
         link: 'https://github.com/adiyogta/adiyogtap'
       ),
+      ListKategori(
+        nama: 'Aplikasi Arisan',
+        url: 'https://drive.google.com/uc?id=1dS5jnihwX0nEtNQr1gGIh1Zm-by5JJT6',
+        detal: 'Aplikasi Arisan untuk perusahaan Money Kingdom Yogyakarta dalam menjalankan arisan menurun',
+        link: 'https://github.com/adiyogta/aplikasi_arisan_money_kingdom'
+      ),
     ],
   ),
    Kategori(
@@ -1987,6 +1992,18 @@ final List<Kategori> kategori = [
         link: null
       ),
     ],
+    
+  ),
+  Kategori(
+    nama: 'UI / UX',
+    listKategori: [
+      ListKategori(
+        nama: 'Aplikasi Arisan',
+        url: 'https://drive.google.com/uc?id=1dS5jnihwX0nEtNQr1gGIh1Zm-by5JJT6',
+        detal: 'Desain ui dari aplikasi arisan money kingdom',
+        link: 'https://www.figma.com/file/ubJy1NXJGeC2hUMXDPl2AQ/admin-morrich?type=design&node-id=0%3A1&mode=design&t=HOqVU10gdTWKleBx-1' 
+      ),
+     ],
   ),
    Kategori(
     nama: 'Foto',
