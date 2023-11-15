@@ -1,8 +1,6 @@
-
-// ignore_for_file: camel_case_types, prefer_final_fields
+// ignore_for_file: camel_case_types, prefer_final_fields, deprecated_member_use
 
 import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -1126,9 +1124,10 @@ get w => MediaQuery.sizeOf(context).width;
                                                     fontWeight: FontWeight.w400,
                                                     color: hitam)),
                                                     const Divider(
-                                      height: 10,
-                                      color: kuning5,
-                                      ),
+                                                    height: 10,
+                                                    color: kuning5,
+                                                    ),
+                                                    list[inde].link!=null? Text('Link Github ${list[inde].link}' ?? ''):Container()
                                                             ],
                                                           ),
                                                           content: CachedNetworkImage(
@@ -1380,7 +1379,6 @@ get w => MediaQuery.sizeOf(context).width;
                                           alignment: Alignment.center,
                                           width: w*0.35,
                                           decoration: BoxDecoration(
-                                            color: Colors.white,
                                             shape: BoxShape.rectangle,
                                             borderRadius: BorderRadius.circular(15)
                                           ),
@@ -1908,8 +1906,8 @@ final List<Kategori> kategori = [
       ListKategori(
         nama: 'Portofolio',
         url: 'https://drive.google.com/uc?id=1dRVvyCBVe1UVp04d7jpqkZFsljPxMWd1',
-        detal: 'Website portofolio saya yang saya buat menggunakan flutter',
-        link: null
+        detal: 'Website portofolio saya yang dibuat menggunakan flutter',
+        link: 'https://github.com/adiyogta/adiyogtap'
       ),
     ],
   ),
