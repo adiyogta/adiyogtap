@@ -293,6 +293,14 @@ get w => MediaQuery.sizeOf(context).width;
       throw 'Could not launch https://drive.google.com/file/d/$url/preview';
    }
   }
+
+  void _launchURLCV() async {
+    if (await canLaunch('https://drive.google.com/uc?id=1dW2zT2fluL1g5b3b9IYrQ7mLaMqnb17j')) {
+      await launch('https://drive.google.com/uc?id=1dW2zT2fluL1g5b3b9IYrQ7mLaMqnb17j');
+    } else {
+      throw 'Could not launch Download CV';
+    }
+  }
   
   void scrollToContainer(int index) {
     // Menggulirkan ke Container tertentu berdasarkan indeks
@@ -438,7 +446,9 @@ get w => MediaQuery.sizeOf(context).width;
                                                 ),
                                                  const SizedBox(height: 20,),
                                                   TextButton(
-                                                    onPressed: (){},
+                                                    onPressed: (){
+                                                      _launchURLCV();
+                                                    },
                                                     child: Container(
                                                       padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                                                       decoration: BoxDecoration(
@@ -467,7 +477,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                   ),
                                                       const SizedBox(height: 20,),
                                                   TextButton(
-                                                    onPressed: (){},
+                                                    onPressed: (){_launchURLCV();},
                                                     child: Container(
                                                       padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                                                       decoration: BoxDecoration(
@@ -504,7 +514,7 @@ get w => MediaQuery.sizeOf(context).width;
   errorWidget: (context, url, error) => const Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.4,
 ),
                                             TextButton(
-                                              onPressed: (){},
+                                              onPressed: (){_launchURLCV();},
                                               child: Container(
                                               padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                                               decoration: BoxDecoration(
@@ -579,7 +589,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                     child: Text('Saya adalah lulusan Teknologi Informasi di Universitas Muhammadiyah Yogyakarta tahun 2023, dengan minat dalam pemrograman dan desain grafis, khususnya dalam pengembangan aplikasi Flutter. Saya memiliki pengalaman dalam proyek freelance aplikasi arisan online, kepemimpinan organisasi kampus sebagai Ketua Divisi Publikasi dan Dokumentasi, serta pengalaman profesional selama 1,5 tahun sebagai Editor Video dan Desainer Grafis di Latifa Jewelry. Saya bersemangat untuk terus berkembang dalam dunia teknologi dan desain.',style: GoogleFonts.montserrat(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam),textAlign: TextAlign.left,),),
                                                    
                                                   TextButton(
-                                                    onPressed: (){},
+                                                    onPressed: (){_launchURLCV();},
                                                     child: Container(
                                                       padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                                                       decoration: BoxDecoration(
@@ -642,7 +652,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                     children: [
-                                                      Text('SMA',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                      Text('SMA',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
                                                       Text('MA AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
                                                       Text('2013-2016',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
                                                     
@@ -662,7 +672,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                     children: [
-                                                      Text('S1 Teknologi Informasi',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                      Text('S1 Teknologi Informasi',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
                                                       Text('Universitas Muhammadiyah Yogyakarta',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
                                                       Text('2016-2023',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
                                                     ],
@@ -691,12 +701,30 @@ get w => MediaQuery.sizeOf(context).width;
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Programmer Magang Di Perusahaan Monte Moria Indonesia',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                              // Text('Membuat website admin restaurant berbasis POST dengan beranggotakan 2 orang dengan platform Angular JS',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('April 2019 - Agustus 2019',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                  TextButton(onPressed: (){},
+                                  TextButton(onPressed: (){
+                                    showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title:  Text('Programmer Magang Di Perusahaan Monte Moria Indonesia',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  content: Text('Membuat website admin restaurant berbasis POST dengan beranggotakan 2 orang dengan platform Angular JS',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Tutup dialog saat tombol ditekan
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Tutup'),
+                    ),
+                  ],
+                );
+              },
+            );
+                                  },
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                                     decoration: BoxDecoration(
@@ -728,12 +756,30 @@ get w => MediaQuery.sizeOf(context).width;
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text('Membuat Project Aplikasi Arisan',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                                // Text('Dalam tim 3 orang, saya berperan sebagai programmer menggunakan framework Flutter untuk mengembangkan aplikasi arisan berbasis Android dengan fungsi CRUD.',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
-                                Row(
+                               Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text('Februari 2021 - April 2021',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                    TextButton(onPressed: (){},
+                                    TextButton(onPressed: (){
+                                      showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title:  Text('Membuat Project Aplikasi Arisan',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  content: Text('Dalam tim 3 orang, saya berperan sebagai programmer menggunakan framework Flutter untuk mengembangkan aplikasi arisan berbasis Android dengan fungsi CRUD.',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Tutup dialog saat tombol ditekan
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Tutup'),
+                    ),
+                  ],
+                );
+              },
+            );
+                                    },
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                                     decoration: BoxDecoration(
@@ -763,13 +809,39 @@ get w => MediaQuery.sizeOf(context).width;
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Editor Video Perusahaan Latifa Jewelry',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
-                              // Text('Mengambil gambar dan video cincin untuk bahan membuat video',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
-                              // Text('Membuat konten Desain dan video harian dengan isi berupa promosi penjualan cincin',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text('Juli 2021 - Desember 2022',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
-                                  TextButton(onPressed: (){},
+                                  TextButton(onPressed: (){
+                                    showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title:  Text('Editor Video Perusahaan Latifa Jewelry',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  content: Container(
+                    alignment: Alignment.topLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Mengambil gambar dan video cincin untuk bahan membuat video',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                        Text('Membuat konten Desain dan video harian dengan isi berupa promosi penjualan cincin',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                      ],
+                    ),
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Tutup dialog saat tombol ditekan
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Tutup'),
+                    ),
+                  ],
+                );
+              },
+            );
+                                  },
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
                                     decoration: BoxDecoration(
@@ -842,7 +914,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                     children: [
-                                                      Text('SMA',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                      Text('SMA',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
                                                       Text('MA AL-Fatah Natar Lampung',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
                                                       Text('2013-2016',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
                                                     
@@ -863,7 +935,7 @@ get w => MediaQuery.sizeOf(context).width;
                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                     children: [
-                                                      Text('S1 Teknologi Informasi',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
+                                                      Text('S1 Teknologi Informasi',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
                                                       Text('Universitas Muhammadiyah Yogyakarta',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.normal, color: hitam)),
                                                       Text('2016-2023',style: GoogleFonts.sono(fontSize: textSize3, fontWeight: FontWeight.bold, color: hitam)),
                                                     ],
@@ -894,13 +966,31 @@ get w => MediaQuery.sizeOf(context).width;
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               children: [
                                                 Text('Programmer Magang Di Perusahaan Monte Moria Indonesia',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
-                                                // Text('Membuat website admin restaurant berbasis POST dengan beranggotakan 2 orang dengan platform Angular JS',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
                                                 Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     Text('April 2019 - Agustus 2019',style: GoogleFonts.sono(fontSize: textSize3-2, fontWeight: FontWeight.bold, color: hitam)),
                                                     IconButton(
-                                                    onPressed: (){},
+                                                    onPressed: (){
+                                                      showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title:  Text('Programmer Magang Di Perusahaan Monte Moria Indonesia',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  content: Text('Membuat website admin restaurant berbasis POST dengan beranggotakan 2 orang dengan platform Angular JS',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Tutup dialog saat tombol ditekan
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Tutup'),
+                    ),
+                  ],
+                );
+              },
+            );
+                                                    },
                                                     icon: Container(
                                                       decoration: const BoxDecoration(
                                                         color: putih,
@@ -930,13 +1020,31 @@ get w => MediaQuery.sizeOf(context).width;
                                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                       children: [
                                                         Text('Membuat Project Aplikasi Arisan',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
-                                                        // Text('Dalam tim 3 orang, saya berperan sebagai programmer menggunakan framework Flutter untuk mengembangkan aplikasi arisan berbasis Android dengan fungsi CRUD.',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
                                                         Row(
                                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                           children: [
                                                             Text('Februari 2021 - April 2021',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
                                                              IconButton(
-                                                    onPressed: (){},
+                                                    onPressed: (){
+                                                      showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title:  Text('Membuat Project Aplikasi Arisan',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  content: Text('Dalam tim 3 orang, saya berperan sebagai programmer menggunakan framework Flutter untuk mengembangkan aplikasi arisan berbasis Android dengan fungsi CRUD.',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Tutup dialog saat tombol ditekan
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Tutup'),
+                    ),
+                  ],
+                );
+              },
+            );
+                                                    },
                                                     icon: Container(
                                                       decoration: const BoxDecoration(
                                                         color: putih,
@@ -965,14 +1073,40 @@ get w => MediaQuery.sizeOf(context).width;
                                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                     children: [
                                                       Text('Editor Video Perusahaan Latifa Jewelry',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
-                                                      // Text('Mengambil gambar dan video cincin untuk bahan membuat video',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
-                                                      // Text('Membuat konten Desain dan video harian dengan isi berupa promosi penjualan cincin',style: GoogleFonts.sono(fontSize: 20, fontWeight: FontWeight.bold, color: hitam)),
                                                       Row(
                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                         children: [
                                                           Text('Juli 2021 - Desember 2022',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
                                                            IconButton(
-                                                    onPressed: (){},
+                                                    onPressed: (){
+                                                      showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title:  Text('Editor Video Perusahaan Latifa Jewelry',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                  content: Container(
+                    alignment: Alignment.topLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Mengambil gambar dan video cincin untuk bahan membuat video',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                        Text('Membuat konten Desain dan video harian dengan isi berupa promosi penjualan cincin',style: GoogleFonts.sono(fontSize: textSize3-1, fontWeight: FontWeight.bold, color: hitam)),
+                      ],
+                    ),
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Tutup dialog saat tombol ditekan
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Tutup'),
+                    ),
+                  ],
+                );
+              },
+            );
+                                                    },
                                                     icon: Container(
                                                       decoration: const BoxDecoration(
                                                         color: putih,
@@ -1188,20 +1322,33 @@ get w => MediaQuery.sizeOf(context).width;
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('KEAHLIAN',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
+                                  Text('Kemampuan',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
                                   const Divider(height: 10,color: hitam),
                                   Padding(
               padding: const EdgeInsets.symmetric(vertical: 40),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
                 children: [
-                  Text('"Flutter Developer"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),), const SizedBox(width: 20,),
-                  Text('"Desain Grafis"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),), const SizedBox(width: 20,),
-                  Text('"Editing Video"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('"Flutter / Dart"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),), const SizedBox(width: 20,),
+                      Text('"Desain Grafis"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),), const SizedBox(width: 20,),
+                      Text('"Editing Video"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),),
+                      
             
+                    ],
+                  ),
+                  Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('"Editing Foto"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),),
+                      Text('"Animasi Motion Grafis"',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),),
+                    ],
+                  ),
                 ],
               ),
             ),
+            
             Text('Keahlian Aplikasi',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize2,fontWeight: FontWeight.bold,color: hitam),),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
@@ -1225,43 +1372,64 @@ get w => MediaQuery.sizeOf(context).width;
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 40),
-              child: Row(
-                
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
                 children: [
-                  Column(
+                  Row(
+                    
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CachedNetworkImage(
+                      Column(
+                        children: [
+                          CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=14z2TnAKvi8ZMznR_2OtEc537xd9x0nlF',
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
 ),
-                     const SizedBox(height: 10,),
-                      Text('Adobe Premiere',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
-                    ],
-                  ),
-                  const SizedBox(width: 20,),
-                  Column(
-                    children: [
-                      CachedNetworkImage(
+                         const SizedBox(height: 10,),
+                          Text('Adobe Premiere',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
+                        ],
+                      ),
+                      const SizedBox(width: 20,),
+                      Column(
+                        children: [
+                          CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=1b8IH_j-x_WU7lYEzaQBEuv30eD6J7lhc',
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
 ),
-                      const SizedBox(height: 10,),
-                      Text('Adobe Photoshop',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
+                          const SizedBox(height: 10,),
+                          Text('Adobe Photoshop',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
+                        ],
+                      ),
+                     
                     ],
                   ),
-                  const SizedBox(width: 20,),
-                  Column(
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CachedNetworkImage(
+                      Column(
+                        children: [
+                          CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=1N5Z_RX41TBhELaSoHhe9VFaSKM_TNM-2',
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
 ),
-                      const SizedBox(height: 10,),
-                      Text('Corel Draw',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
+                          const SizedBox(height: 10,),
+                          Text('Corel Draw',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
+                        ],
+                      ),
+                      const SizedBox(width: 20,),
+                      Column(
+                        children: [
+                          CachedNetworkImage(
+  imageUrl: 'https://drive.google.com/uc?id=1dYaOSfagYLArEOS42HJry901_KITnE5w',
+  placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
+  errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
+),
+                          const SizedBox(height: 10,),
+                          Text('After Effects',style: GoogleFonts.nunito(fontStyle: FontStyle.normal,fontSize: textSize3,fontWeight: FontWeight.bold,color: hitam),)
+                        ],
+                      ),
                     ],
                   ),
                 ],
@@ -1275,7 +1443,7 @@ get w => MediaQuery.sizeOf(context).width;
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                   Text('KEAHLIAN',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
+                                   Text('Kemampuan',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontSize: textSize1,fontWeight: FontWeight.w400,color: hitam)),
                                   const Divider(height: 10,color: hitam),
                                   Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -1294,7 +1462,7 @@ get w => MediaQuery.sizeOf(context).width;
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: GridView.builder(
-                  itemCount: 4,
+                  itemCount: 5,
                   physics: h<500?null:const NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: w<500 ?2:4, // Jumlah kolom dalam grid
@@ -1308,6 +1476,7 @@ get w => MediaQuery.sizeOf(context).width;
                   'https://drive.google.com/uc?id=14z2TnAKvi8ZMznR_2OtEc537xd9x0nlF',
                   'https://drive.google.com/uc?id=1b8IH_j-x_WU7lYEzaQBEuv30eD6J7lhc',
                   'https://drive.google.com/uc?id=1N5Z_RX41TBhELaSoHhe9VFaSKM_TNM-2',
+                  'https://drive.google.com/uc?id=1dYaOSfagYLArEOS42HJry901_KITnE5w',
                 ];
                       
                 List<String> titles = [
@@ -1315,6 +1484,7 @@ get w => MediaQuery.sizeOf(context).width;
                   'Adobe Premiere',
                   'Adobe Photoshop',
                   'Corel Draw',
+                  'After Effects'
                 ];
                       
                 return Container(
@@ -1727,7 +1897,7 @@ get w => MediaQuery.sizeOf(context).width;
                         ),
                         TextButton(
                           onPressed: () => scrollToContainer(3),
-                          child: Text('Keahlian',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
+                          child: Text('Kemampuan',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                         ),
                         TextButton(
                           onPressed: () => scrollToContainer(4),
@@ -1823,7 +1993,7 @@ get w => MediaQuery.sizeOf(context).width;
                       ),
                       TextButton(
                         onPressed: () => scrollToContainer(3),
-                        child: Text('Keahlian',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
+                        child: Text('Kemampuan',style: GoogleFonts.sono(fontStyle: FontStyle.normal,fontWeight: FontWeight.bold,color: hitam)),
                       ),
                       TextButton(
                         onPressed: () => scrollToContainer(4),
@@ -1861,7 +2031,7 @@ class Teman {
 final List<Teman> teman = [
 
   Teman(
-    name: 'Ocky Dimas',
+    name: 'Dimas Ocky',
     noTelp: '0895421431085'
   ),
   Teman(
@@ -2011,25 +2181,25 @@ final List<Kategori> kategori = [
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dFDGh-gz2AwcLCDIsn4pwI52Hv0vm28-',
-        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BWS Sleman',
         link: null
       ),
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dKn8zDcfMAR011rvlqcX7xPWnLt0uLaC',
-        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BWS Sleman',
         link: null
       ),
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dPpcKYruo4lYF7V2883-JiQNH58Zs8-y',
-        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BWS Sleman',
         link: null
       ),
       ListKategori(
         nama: 'Kebun',
         url: 'https://drive.google.com/uc?id=1dAy9E8_YZ8YcOQ3RUhpfTS-YfI9z0hYm',
-        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BSH Sleman',
+        detal: 'Foto Produk dan Kebun untuk usaha Salada diperusahaan BWS Sleman',
         link: null
       ),
     ],
