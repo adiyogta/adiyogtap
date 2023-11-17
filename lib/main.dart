@@ -121,6 +121,7 @@ class _homePageState extends State<homePage> {
                                   ),
                                   child: CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86',
+  filterQuality: FilterQuality.medium,
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),
 ),
@@ -244,6 +245,7 @@ class _homePageState extends State<homePage> {
                 child: CachedNetworkImage(
                   
   imageUrl: 'https://drive.google.com/uc?id=1yPxuu_Dtev727uS1lYmuCkIK-nVTTC86',
+  filterQuality: FilterQuality.medium,
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),
 ),
@@ -424,6 +426,7 @@ get w => MediaQuery.sizeOf(context).width;
                                         children: [
                                           CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',
+  filterQuality: FilterQuality.medium,
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.35,
 ),
@@ -510,6 +513,7 @@ get w => MediaQuery.sizeOf(context).width;
                                           children: [
                                             CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',
+  filterQuality: FilterQuality.medium,
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.4,
 ),
@@ -566,6 +570,7 @@ get w => MediaQuery.sizeOf(context).width;
                                       ),
                                       CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=1ERQrTw7kQItWYOwBGdB5ReSEFhI6PuRt',
+  filterQuality: FilterQuality.medium,
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: MediaQuery.sizeOf(context).height*0.20,
 ),
@@ -1209,7 +1214,7 @@ get w => MediaQuery.sizeOf(context).width;
                                               //   javascriptMode: JavascriptMode.unrestricted,
                                               // ):
                                               CachedNetworkImage(
-                                                imageUrl:index ==3 ? 'https://drive.google.com/thumbnail?id=${list[inde].url}' : list[inde].url,
+                                                imageUrl:index ==4 ? 'https://drive.google.com/thumbnail?id=${list[inde].url}' : list[inde].url,
                                                 fit: BoxFit.fitWidth,
                                                 filterQuality: FilterQuality.low,
                                                 placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
@@ -1359,6 +1364,7 @@ get w => MediaQuery.sizeOf(context).width;
                     children: [
                       CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=1bTrz76prqHj4QPkSwK1Ydinf3vQBrBc1',
+  filterQuality: FilterQuality.medium,
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
 ),
@@ -1382,6 +1388,7 @@ get w => MediaQuery.sizeOf(context).width;
                         children: [
                           CachedNetworkImage(
   imageUrl: 'https://drive.google.com/uc?id=14z2TnAKvi8ZMznR_2OtEc537xd9x0nlF',
+  filterQuality: FilterQuality.medium,
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
 ),
@@ -1393,6 +1400,7 @@ get w => MediaQuery.sizeOf(context).width;
                       Column(
                         children: [
                           CachedNetworkImage(
+                            filterQuality: FilterQuality.medium,
   imageUrl: 'https://drive.google.com/uc?id=1b8IH_j-x_WU7lYEzaQBEuv30eD6J7lhc',
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
@@ -1410,6 +1418,7 @@ get w => MediaQuery.sizeOf(context).width;
                       Column(
                         children: [
                           CachedNetworkImage(
+                            filterQuality: FilterQuality.medium,
   imageUrl: 'https://drive.google.com/uc?id=1N5Z_RX41TBhELaSoHhe9VFaSKM_TNM-2',
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
@@ -1422,6 +1431,7 @@ get w => MediaQuery.sizeOf(context).width;
                       Column(
                         children: [
                           CachedNetworkImage(
+                            filterQuality: FilterQuality.medium,
   imageUrl: 'https://drive.google.com/uc?id=1dYaOSfagYLArEOS42HJry901_KITnE5w',
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
@@ -1501,6 +1511,7 @@ get w => MediaQuery.sizeOf(context).width;
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                        CachedNetworkImage(
+                        filterQuality: FilterQuality.medium,
   imageUrl: imageUrls[index],
   placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: putih,value: 2,)),
   errorWidget: (context, url, error) => const Icon(Icons.error),height: 50,
